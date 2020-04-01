@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="KSJDemoVC.cpp" />
+    <ClCompile Include="KSJDemoVCDlg.cpp" />
+    <ClCompile Include="SnapStatic.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="..\common\KSJ_GS.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KSJDemoVC.h" />
+    <ClInclude Include="KSJDemoVCDlg.h" />
+    <ClInclude Include="OEM.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SnapStatic.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\KSJApi.Inc\KSJApiB.h">
+      <Filter>KSJApi.Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KSJApi.Inc\KSJApiC.h">
+      <Filter>KSJApi.Inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\KSJ_GS.H">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="KSJDemoVC.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\KSJDemoVC.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\KSJDemoVC.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="KSJApi.Inc">
+      <UniqueIdentifier>{14f4b93b-a332-4281-89e7-fee91c08d69b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{e9caf777-5dc9-4dff-a79c-2db2ec572ff0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

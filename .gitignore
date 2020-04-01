@@ -1,0 +1,13 @@
+Debug/
+Release/
+KSJApiLog/
+
+KSJApi.ini
+*.sdf
+*.ipch
+*.suo
+*.aps
+*.user
+
+
+
