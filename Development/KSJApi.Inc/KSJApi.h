@@ -28,7 +28,7 @@
 #include "KSJApiCustom.h"
 #include "KSJApiAwaiba.h"
 #include "KSJApiStream.h"
-
+#include "KSJApiInternal.h"
 
 #include "KSJObsolete.h"
 
