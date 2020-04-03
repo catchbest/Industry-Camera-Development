@@ -76,7 +76,7 @@ public:
 	afx_msg void OnEnChangeEditExposureLines();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 private:
-	CSnapStatic m_SnapStatic;
+	CSnapStatic m_SnapStatic;//ÏÔÊ¾Í¼Ïñ¿Ø¼þ
 
 	BOOL        m_bInitial;
 public:

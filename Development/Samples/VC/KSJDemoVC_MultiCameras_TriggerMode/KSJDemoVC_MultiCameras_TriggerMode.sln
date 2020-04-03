@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KSJDemoVC_MultiCameras_TriggerMode", "KSJDemoVC_MultiCameras_TriggerMode.vcxproj", "{BB9B5357-154F-43D3-AB53-11DCAF88957D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KSJDemoVC_MultiCameras_TriggerMode", "KSJDemoVC_MultiCameras_TriggerMode.vcxproj", "{556B1973-EBA7-431A-B37A-9DD73E03FFEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BB9B5357-154F-43D3-AB53-11DCAF88957D}.Debug|Win32.ActiveCfg = Debug|Win32
-		{BB9B5357-154F-43D3-AB53-11DCAF88957D}.Debug|Win32.Build.0 = Debug|Win32
-		{BB9B5357-154F-43D3-AB53-11DCAF88957D}.Debug|x64.ActiveCfg = Debug|x64
-		{BB9B5357-154F-43D3-AB53-11DCAF88957D}.Debug|x64.Build.0 = Debug|x64
-		{BB9B5357-154F-43D3-AB53-11DCAF88957D}.Release|Win32.ActiveCfg = Release|Win32
-		{BB9B5357-154F-43D3-AB53-11DCAF88957D}.Release|Win32.Build.0 = Release|Win32
-		{BB9B5357-154F-43D3-AB53-11DCAF88957D}.Release|x64.ActiveCfg = Release|x64
-		{BB9B5357-154F-43D3-AB53-11DCAF88957D}.Release|x64.Build.0 = Release|x64
+		{556B1973-EBA7-431A-B37A-9DD73E03FFEF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{556B1973-EBA7-431A-B37A-9DD73E03FFEF}.Debug|Win32.Build.0 = Debug|Win32
+		{556B1973-EBA7-431A-B37A-9DD73E03FFEF}.Debug|x64.ActiveCfg = Debug|x64
+		{556B1973-EBA7-431A-B37A-9DD73E03FFEF}.Debug|x64.Build.0 = Debug|x64
+		{556B1973-EBA7-431A-B37A-9DD73E03FFEF}.Release|Win32.ActiveCfg = Release|Win32
+		{556B1973-EBA7-431A-B37A-9DD73E03FFEF}.Release|Win32.Build.0 = Release|Win32
+		{556B1973-EBA7-431A-B37A-9DD73E03FFEF}.Release|x64.ActiveCfg = Release|x64
+		{556B1973-EBA7-431A-B37A-9DD73E03FFEF}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

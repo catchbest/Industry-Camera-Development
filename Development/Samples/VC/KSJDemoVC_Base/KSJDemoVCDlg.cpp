@@ -115,18 +115,31 @@ m_nDeviceCurSel(-1), m_hCaptureThread(NULL), m_hCaptureThreadExitEvent(NULL), m_
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
 	// You only call KSJ_Init once.
-	int nRet = KSJ_Init();
+	int nRet = KSJ_Init();//动态库初始化
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+// 函数：OnDestroy
+// 功能：退出对话框调用程序
+// 参数：无
+// 返回：无
+// 说明：可以在函数内进行释放资源
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::OnDestroy()
 {
 	CDialogEx::OnDestroy();
 
-	int nRet = KSJ_UnInit();
+	int nRet = KSJ_UnInit();//释放动态库
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+// 函数：ShowErrorInfo
+// 功能：在界面上打印执行结果
+// 参数：
+//       nRet： 输入，ksjapi函数返回值
+// 返回：无
+// 说明：调用ksjapi函数后根据其返回值显示执行结果
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::ShowErrorInfo(int nRet)
 {
 	TCHAR szErrorInfo[256] = { '\0' };
@@ -134,7 +147,13 @@ void CKSJDemoVCDlg::ShowErrorInfo(int nRet)
 	((CStatic*)GetDlgItem(IDC_STATIC_ERROR_INFO))->SetWindowText(szErrorInfo);
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+// 函数：OnInitDialog
+// 功能：进入对话框时进行初始化
+// 参数：无
+// 返回：执行是否成功
+// 说明：在函数内初始化控件参数
+//-----------------------------------------------------------------------------
 BOOL CKSJDemoVCDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
@@ -165,7 +184,7 @@ BOOL CKSJDemoVCDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	//CEdit *pEditCtrlExposureTimeMs = ((CEdit*)GetDlgItem(IDC_EDIT_EXPOSURE_TIME_MS));
-	CSpinButtonCtrl * pSpinCtrlExposureTimeMs = (CSpinButtonCtrl *)GetDlgItem(IDC_SPIN_EXPOSURE_TIME_MS);
+	CSpinButtonCtrl * pSpinCtrlExposureTimeMs = (CSpinButtonCtrl *)GetDlgItem(IDC_SPIN_EXPOSURE_TIME_MS);//初始化SPIN控件
 	pSpinCtrlExposureTimeMs->SetBuddy(GetDlgItem(IDC_EDIT_EXPOSURE_TIME_MS));
 	pSpinCtrlExposureTimeMs->SetBase(10);
 
@@ -178,7 +197,7 @@ BOOL CKSJDemoVCDlg::OnInitDialog()
 	pSpinCtrlGain->SetBuddy(GetDlgItem(IDC_EDIT_GAIN));
 	pSpinCtrlGain->SetBase(10);
 
-	CListCtrl *pListFunction = (CListCtrl*)GetDlgItem(IDC_LIST_FUNCTION);
+	CListCtrl *pListFunction = (CListCtrl*)GetDlgItem(IDC_LIST_FUNCTION);//初始化功能列表
 	pListFunction->DeleteAllItems();
 	pListFunction->InsertColumn(0, _T("Function"));
 	pListFunction->InsertColumn(1, _T("Support"));
@@ -188,14 +207,21 @@ BOOL CKSJDemoVCDlg::OnInitDialog()
 	DWORD dwStyleEx = pListFunction->GetExtendedStyle();
 	pListFunction->SetExtendedStyle(dwStyleEx | LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES);
 
-	UpdateDeviceList();
+	UpdateDeviceList();//获取相机的列表插入到界面上放下拉框
 	UpdateInterface();
-	UpdateInterfaceFunction();
+	UpdateInterfaceFunction();//获取相机支持的功能显示在功能列表中
 
 	m_bInitial = TRUE;
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
+//-----------------------------------------------------------------------------
+// 函数：UpdateInterface
+// 功能：获取选中相机的数据显示在界面上
+// 参数：无
+// 返回：无
+// 说明：每次更换设备时调用，刷新界面参数
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::UpdateInterface()
 {
 	if (m_nDeviceCurSel == -1)   return;
@@ -205,7 +231,7 @@ void CKSJDemoVCDlg::UpdateInterface()
 	int nMax = 0;
 	int nCur = 0;
 
-	KSJ_GetParamRange(m_nDeviceCurSel, KSJ_EXPOSURE, &nMin, &nMax);
+	KSJ_GetParamRange(m_nDeviceCurSel, KSJ_EXPOSURE, &nMin, &nMax);//曝光时间
 	KSJ_GetParam(m_nDeviceCurSel, KSJ_EXPOSURE, &nCur);
 
 	CSpinButtonCtrl * pSpinCtrl = (CSpinButtonCtrl *)GetDlgItem(IDC_SPIN_EXPOSURE_TIME_MS);
@@ -216,7 +242,7 @@ void CKSJDemoVCDlg::UpdateInterface()
 	_stprintf_s(szText, _T("%d-%d ms (%0.2fsec, %0.2fmin)"), nMin, nMax, (float)nMin / 1000.0f, (float)nMax / 60000.0f);
 	((CStatic*)GetDlgItem(IDC_STATIC_EXPOSURE_TIME_RANGE))->SetWindowText(szText);
 
-	KSJ_GetParamRange(m_nDeviceCurSel, KSJ_EXPOSURE_LINES, &nMin, &nMax);
+	KSJ_GetParamRange(m_nDeviceCurSel, KSJ_EXPOSURE_LINES, &nMin, &nMax);//曝光行
 	KSJ_GetParam(m_nDeviceCurSel, KSJ_EXPOSURE_LINES, &nCur);
 	pSpinCtrl = (CSpinButtonCtrl *)GetDlgItem(IDC_SPIN_EXPOSURE_LINES);
 	pSpinCtrl->SetRange32(nMin, nMax);
@@ -226,7 +252,7 @@ void CKSJDemoVCDlg::UpdateInterface()
 	((CStatic*)GetDlgItem(IDC_STATIC_EXPOSURE_LINES_RANGE))->SetWindowText(szText);
 	
 	// GAIN, Because R,G,B Gain has same range. 
-	KSJ_GetParamRange(m_nDeviceCurSel, KSJ_RED, &nMin, &nMax);
+	KSJ_GetParamRange(m_nDeviceCurSel, KSJ_RED, &nMin, &nMax);//增益
 	KSJ_GetParam(m_nDeviceCurSel, KSJ_RED, &nCur);
 
 	pSpinCtrl = (CSpinButtonCtrl *)GetDlgItem(IDC_SPIN_GAIN);
@@ -243,7 +269,7 @@ void CKSJDemoVCDlg::UpdateInterface()
 	int nRowSize;
 	KSJ_ADDRESSMODE ColAddressMode;
 	KSJ_ADDRESSMODE RowAddressMode;
-	KSJ_PreviewGetDefaultFieldOfView(m_nDeviceCurSel, &nColStart, &nRowStart, &nColSize, &nRowSize, &ColAddressMode, &RowAddressMode);
+	KSJ_PreviewGetDefaultFieldOfView(m_nDeviceCurSel, &nColStart, &nRowStart, &nColSize, &nRowSize, &ColAddressMode, &RowAddressMode);//预览默认视场
 	// Preview, Capture they are same, so you should get one is ok!
 	_stprintf_s(szText, _T("%d-%d"), nColSize, nRowSize);
 	((CStatic*)GetDlgItem(IDC_STATIC_FOV_RANGE))->SetWindowText(szText);
@@ -253,13 +279,20 @@ void CKSJDemoVCDlg::UpdateInterface()
 	SetDlgItemInt(IDC_EDIT_PREIVEW_COL_SIZE, nColSize);
 	SetDlgItemInt(IDC_EDIT_PREIVEW_ROW_SIZE, nRowSize);
 
-	KSJ_CaptureGetDefaultFieldOfView(m_nDeviceCurSel, &nColStart, &nRowStart, &nColSize, &nRowSize, &ColAddressMode, &RowAddressMode);
+	KSJ_CaptureGetDefaultFieldOfView(m_nDeviceCurSel, &nColStart, &nRowStart, &nColSize, &nRowSize, &ColAddressMode, &RowAddressMode);//采集默认视场
 	SetDlgItemInt(IDC_EDIT_CAPTURE_COL_START, nColStart);
 	SetDlgItemInt(IDC_EDIT_CAPTURE_ROW_START, nRowStart);
 	SetDlgItemInt(IDC_EDIT_CAPTURE_COL_SIZE, nColSize);
 	SetDlgItemInt(IDC_EDIT_CAPTURE_ROW_SIZE, nRowSize);
 }
 
+//-----------------------------------------------------------------------------
+// 函数：UpdateDeviceList
+// 功能：更新相机设备的列表
+// 参数：无
+// 返回：无
+// 说明：获取相机数量并将每个相机的信息填入combox控件
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::UpdateDeviceList(void)
 {
 	KSJ_UnInit();
@@ -269,23 +302,23 @@ void CKSJDemoVCDlg::UpdateDeviceList(void)
 	pComboBox = (CComboBox*)GetDlgItem(IDC_COMBO_DEVICE_LIST);
 	pComboBox->ResetContent();
 
-	m_nDeviceNum = KSJ_DeviceGetCount();
+	m_nDeviceNum = KSJ_DeviceGetCount();//获取电脑连接的相机数量
 	TCHAR  szDeviceNum[64] = { '\0' };
 	_stprintf_s(szDeviceNum, _T("%d Device Found:"), m_nDeviceNum);
 	GetDlgItem(IDC_STATIC_DEVICENUM)->SetWindowText(szDeviceNum);
 
-	if (m_nDeviceNum == 0)
+	if (m_nDeviceNum == 0)//如果未连接相机则跳出
 	{
 		m_nDeviceCurSel = -1;
 		return;
 	}
 
-	if (m_nDeviceCurSel >= m_nDeviceNum)
+	if (m_nDeviceCurSel >= m_nDeviceNum)//选的相机序号有问题咋恢复选中第一个相机
 	{
 		m_nDeviceCurSel = 0;
 	}
 
-	for (int i = 0; i<m_nDeviceNum; i++)
+	for (int i = 0; i<m_nDeviceNum; i++)//获取每个相机的参数插入到顶部下拉框中
 	{
 		m_DeviceInfo[i].nIndex = i;
 		// KSJ_DeviceGetInformation( i, &(m_DeviceInfo[i].DeviceType), &(m_DeviceInfo[i].nSerials), &(m_DeviceInfo[i].wFirmwareVersion) );
@@ -302,21 +335,33 @@ void CKSJDemoVCDlg::UpdateDeviceList(void)
 		pComboBox->AddString(szMenuItem);
 	}
 
-	pComboBox->SetCurSel(m_nDeviceCurSel);
+	pComboBox->SetCurSel(m_nDeviceCurSel);//设置下拉框内相机为当前选中相机
 }
 
-
+//-----------------------------------------------------------------------------
+// 函数：OnCbnSelchangeComboDeviceList
+// 功能：下拉框重新选择相机
+// 参数：无
+// 返回：无
+// 说明：在下拉框选中相机，更新相机参数和功能支持列表到界面
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::OnCbnSelchangeComboDeviceList()
 {
 	CComboBox    *pComboBox = NULL;
 	pComboBox = (CComboBox*)GetDlgItem(IDC_COMBO_DEVICE_LIST);
-	m_nDeviceCurSel = pComboBox->GetCurSel();
+	m_nDeviceCurSel = pComboBox->GetCurSel();//下拉框重新选择相机
 
 	UpdateInterface();
 	UpdateInterfaceFunction();
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+// 函数：GetRealExposureTime
+// 功能：更新实际曝光时间到界面
+// 参数：无
+// 返回：无
+// 说明：获取实际曝光时间
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::GetRealExposureTime()
 {
 	float fExposureTimeMs = 0.0f;
@@ -327,7 +372,14 @@ void CKSJDemoVCDlg::GetRealExposureTime()
 	((CStatic*)GetDlgItem(IDC_STATIC_EXPOSURE_TIME_REAL))->SetWindowText(szExposureTimeMs);
 
 }
-// Set Exposure Time ms
+
+//-----------------------------------------------------------------------------
+// 函数：OnEnChangeEditExposureTimeMs
+// 功能：更新曝光时间
+// 参数：无
+// 返回：无
+// 说明：界面修改曝光时间后调用此函数
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::OnEnChangeEditExposureTimeMs()
 {
 	if (m_nDeviceCurSel == -1)   return;
@@ -343,6 +395,13 @@ void CKSJDemoVCDlg::OnEnChangeEditExposureTimeMs()
 	GetRealExposureTime();
 }
 
+//-----------------------------------------------------------------------------
+// 函数：OnEnChangeEditGain
+// 功能：更新增益
+// 参数：无
+// 返回：无
+// 说明：界面修改增益后调用此函数
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::OnEnChangeEditGain()
 {
 	if (m_nDeviceCurSel == -1)   return;
@@ -358,6 +417,13 @@ void CKSJDemoVCDlg::OnEnChangeEditGain()
 	KSJ_SetParam(m_nDeviceCurSel, KSJ_BLUE, nGain);
 }
 
+//-----------------------------------------------------------------------------
+// 函数：OnEnChangeEditExposureLines
+// 功能：更新曝光行
+// 参数：无
+// 返回：无
+// 说明：界面修改曝光行后调用此函数
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::OnEnChangeEditExposureLines()
 {
 	if (m_nDeviceCurSel == -1)   return;
@@ -374,6 +440,13 @@ void CKSJDemoVCDlg::OnEnChangeEditExposureLines()
 
 }
 
+//-----------------------------------------------------------------------------
+// 函数：OnBnClickedButtonPreviewFovSet
+// 功能：修改预览视场
+// 参数：无
+// 返回：无
+// 说明：点击预览修改按钮后调用
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::OnBnClickedButtonPreviewFovSet()
 {
 	int nColStart;
@@ -389,7 +462,7 @@ void CKSJDemoVCDlg::OnBnClickedButtonPreviewFovSet()
 	nColSize = GetDlgItemInt(IDC_EDIT_PREIVEW_COL_SIZE);
 	nRowSize = GetDlgItemInt(IDC_EDIT_PREIVEW_ROW_SIZE);
 
-	KSJ_PreviewSetFieldOfView(m_nDeviceCurSel, nColStart, nRowStart, nColSize, nRowSize, ColAddressMode, RowAddressMode);
+	KSJ_PreviewSetFieldOfView(m_nDeviceCurSel, nColStart, nRowStart, nColSize, nRowSize, ColAddressMode, RowAddressMode);//设置预览视场
 	
 	// User may not set FOV correctly, ksjapi will correct it!
 	KSJ_PreviewGetFieldOfView(m_nDeviceCurSel, &nColStart, &nRowStart, &nColSize, &nRowSize, &ColAddressMode, &RowAddressMode);
@@ -400,7 +473,13 @@ void CKSJDemoVCDlg::OnBnClickedButtonPreviewFovSet()
 
 }
 
-
+//-----------------------------------------------------------------------------
+// 函数：OnBnClickedButtonCaptureFovSet
+// 功能：修改采集视场
+// 参数：无
+// 返回：无
+// 说明：点击采集修改按钮后调用
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::OnBnClickedButtonCaptureFovSet()
 {
 	int nColStart;
@@ -415,7 +494,7 @@ void CKSJDemoVCDlg::OnBnClickedButtonCaptureFovSet()
 	nRowStart = GetDlgItemInt(IDC_EDIT_CAPTURE_ROW_START);
 	nColSize = GetDlgItemInt(IDC_EDIT_CAPTURE_COL_SIZE);
 	nRowSize = GetDlgItemInt(IDC_EDIT_CAPTURE_ROW_SIZE);
-	KSJ_CaptureSetFieldOfView(m_nDeviceCurSel, nColStart, nRowStart, nColSize, nRowSize, ColAddressMode, RowAddressMode);
+	KSJ_CaptureSetFieldOfView(m_nDeviceCurSel, nColStart, nRowStart, nColSize, nRowSize, ColAddressMode, RowAddressMode);//设置采集视场
 
 	KSJ_CaptureGetFieldOfView(m_nDeviceCurSel, &nColStart, &nRowStart, &nColSize, &nRowSize, &ColAddressMode, &RowAddressMode);
 	SetDlgItemInt(IDC_EDIT_CAPTURE_COL_START, nColStart);
@@ -424,65 +503,77 @@ void CKSJDemoVCDlg::OnBnClickedButtonCaptureFovSet()
 	SetDlgItemInt(IDC_EDIT_CAPTURE_ROW_SIZE, nRowSize);
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+// 函数：OnTimer
+// 功能：计时器函数
+// 参数：无
+// 返回：无
+// 说明：函数内可以操作计时器显示当前预览帧率以及更新进度条
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::OnTimer(UINT_PTR nIDEvent)
 {
-	if (nIDEvent == TIMERID_CAPTURE_PROGRESS)
+	if (nIDEvent == TIMERID_CAPTURE_PROGRESS)//进度条操作计时器
 	{
 		CProgressCtrl *pProgressCtrl = (CProgressCtrl*)GetDlgItem(IDC_PROGRESS_EXPOSURE);
 		pProgressCtrl->SetPos(pProgressCtrl->GetPos() + 1000);
 	}
-	else if (nIDEvent == TIMERID_GET_FRAME_RATE)
+	else if (nIDEvent == TIMERID_GET_FRAME_RATE)//显示帧率计时器
 	{
-		float fFrameRate = 0.0f;
-		KSJ_PreviewGetFrameRate(m_nDeviceCurSel, &fFrameRate);
+		float fFrameRateCapture = 0.0f;
+		float fFrameRateShow = 0.0f;
+		KSJ_PreviewGetFrameRateEx(m_nDeviceCurSel, &fFrameRateCapture, &fFrameRateShow);
 		TCHAR   szFrameRate[32] = { '\0' };
-		_stprintf_s(szFrameRate, _T("KSJDemo Fps=%0.2f"), fFrameRate);
+		_stprintf_s(szFrameRate, _T("KSJDemo Fps=%0.2f"), fFrameRateShow);
 		SetWindowText(szFrameRate);
 	}
 
 	CDialogEx::OnTimer(nIDEvent);
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-// Start Preview
+//-----------------------------------------------------------------------------
+// 函数：OnBnClickedCheckPreviewstart
+// 功能：启动/停止预览
+// 参数：无
+// 返回：无
+// 说明：启动或停止预览时调用此函数
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::OnBnClickedCheckPreviewstart()
 {
 	if (m_nDeviceCurSel == -1)   return;
 
-	HWND   hPreviewWnd = ((CStatic*)GetDlgItem(IDC_STATIC_PREVIEWWND))->m_hWnd;
+	HWND   hPreviewWnd = ((CStatic*)GetDlgItem(IDC_STATIC_PREVIEWWND))->m_hWnd;//获取显示控件句柄
 	int    nPreviewWndWidth = 0;
 	int    nPreviewWndHeight = 0;
 	RECT   rtPreviewWndClient;
-	((CStatic*)GetDlgItem(IDC_STATIC_PREVIEWWND))->GetClientRect(&rtPreviewWndClient);
+	((CStatic*)GetDlgItem(IDC_STATIC_PREVIEWWND))->GetClientRect(&rtPreviewWndClient);//获取显示控件宽高
 
 	nPreviewWndWidth = rtPreviewWndClient.right - rtPreviewWndClient.left;
 	nPreviewWndHeight = rtPreviewWndClient.bottom - rtPreviewWndClient.top;
 
 	// You should assign window for preview once
-	KSJ_PreviewSetPos(m_nDeviceCurSel, hPreviewWnd, 0, 0, nPreviewWndWidth, nPreviewWndHeight);
+	KSJ_PreviewSetPos(m_nDeviceCurSel, hPreviewWnd, 0, 0, nPreviewWndWidth, nPreviewWndHeight);//设置预览窗口
 
 	BOOL bCheck = ((CButton*)GetDlgItem(IDC_CHECK_PREVIEWSTART))->GetCheck();
 
-	int nRet = KSJ_PreviewStart(m_nDeviceCurSel, (bCheck ? true : false));
+	int nRet = KSJ_PreviewStartEx(m_nDeviceCurSel, (bCheck ? true : false), true);//启动/停止预览
 
 	if (bCheck)
 	{
-		SetTimer(TIMERID_GET_FRAME_RATE, 1000, NULL);
+		SetTimer(TIMERID_GET_FRAME_RATE, 1000, NULL);//启动计时器显示帧率
 	}
 	else
 	{
-		KillTimer(TIMERID_GET_FRAME_RATE);
+		KillTimer(TIMERID_GET_FRAME_RATE);//关闭计时器
 	}
-
-	nRet = KSJ_WhiteBalanceSet(m_nDeviceCurSel, KSJ_SWB_AUTO_CONITNUOUS);
-	nRet = KSJ_AWBSetRegion(m_nDeviceCurSel, 648, 486, 2592, 1944);
-	nRet = KSJ_SetParam(m_nDeviceCurSel, KSJ_EXPOSURE_LINES, 32);
-
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-// Start Capture Message Function
+//-----------------------------------------------------------------------------
+// 函数：MsgCaptureStart
+// 功能：启动采集进度条
+// 参数：无
+// 返回：无
+// 说明：应对WM_CAPTURE_START消息的函数
+//-----------------------------------------------------------------------------
 afx_msg LRESULT CKSJDemoVCDlg::MsgCaptureStart(WPARAM wParam, LPARAM lParam)
 {
 	int nExposureTimeMs = 0;
@@ -498,8 +589,13 @@ afx_msg LRESULT CKSJDemoVCDlg::MsgCaptureStart(WPARAM wParam, LPARAM lParam)
 
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
-// Capture Finish Message Function
+//-----------------------------------------------------------------------------
+// 函数：MsgUpdateSnapStatic
+// 功能：采集完成函数，采集成功显示采集图片，失败则显示采集失败
+// 参数：无
+// 返回：无
+// 说明：应对WM_UPDATE_SNAP_STATIC消息的函数
+//-----------------------------------------------------------------------------
 afx_msg LRESULT CKSJDemoVCDlg::MsgUpdateSnapStatic(WPARAM wParam, LPARAM lParam)
 {
 	BOOL bSuccess = (BOOL)lParam;
@@ -538,24 +634,39 @@ afx_msg LRESULT CKSJDemoVCDlg::MsgUpdateSnapStatic(WPARAM wParam, LPARAM lParam)
 	return 0;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+// 函数：Capture
+// 功能：采集函数
+// 参数：无
+// 返回：无
+// 说明：相机采集函数
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::Capture()
 {
 	if (m_nDeviceCurSel == -1)    return;
 
 	int    nCaptureWidth, nCaptureHeight, nCaptureBitCount;
+	int sample;
 
-	int nRet = KSJ_CaptureGetSizeEx(m_nDeviceCurSel, &nCaptureWidth, &nCaptureHeight, &nCaptureBitCount);
+	int nRet = KSJ_CaptureGetSizeExEx(m_nDeviceCurSel, &nCaptureWidth, &nCaptureHeight, &nCaptureBitCount, &sample);//获取图像宽高位
 	ShowErrorInfo(nRet);
 
-	BYTE    *pImageData = new BYTE[nCaptureWidth * nCaptureHeight * (nCaptureBitCount >> 3)];
+	BYTE    *pImageData = new BYTE[nCaptureWidth * nCaptureHeight * (nCaptureBitCount >> 3)];//动态分配保存图像矩阵的数组
 
-	LARGE_INTEGER    counterStart;
+	LARGE_INTEGER    counterStart;//记录起始时间
 	QueryPerformanceCounter(&counterStart);
 
-	PostMessage(WM_CAPTURE_START, NULL, NULL);
+	PostMessage(WM_CAPTURE_START, NULL, NULL);//启动进度条
 
-	nRet = KSJ_CaptureRgbData(m_nDeviceCurSel, pImageData);
+	if (nCaptureBitCount == 24)
+	{
+		nRet = KSJ_CaptureRgbData(m_nDeviceCurSel, pImageData);//采集彩色图像
+	}
+	else
+	{
+		nRet = KSJ_CaptureRawData(m_nDeviceCurSel, pImageData);//采集黑白图像
+	}
+	
 	ShowErrorInfo(nRet);
 	if (nRet != RET_SUCCESS)
 	{
@@ -570,11 +681,11 @@ void CKSJDemoVCDlg::Capture()
 	LARGE_INTEGER nFreq;
 	QueryPerformanceFrequency(&nFreq);
 
-	float fInterval = (float)(counterEnd.QuadPart - counterStart.QuadPart);
+	float fInterval = (float)(counterEnd.QuadPart - counterStart.QuadPart);//计算采集耗时
 	float fElapse = fInterval / (float)nFreq.QuadPart * 1000;    // MS
 
 	BOOL bCheck = ((CButton*)GetDlgItem(IDC_CHECK_SAVE))->GetCheck();
-	if (bCheck)
+	if (bCheck)//如果勾选了保存则存图片
 	{
 		TCHAR   szFileName[MAX_PATH] = { '\0' };
 
@@ -582,10 +693,10 @@ void CKSJDemoVCDlg::Capture()
 		GetLocalTime(&LocalTime);
 #ifdef SAVE_JPG
 		_stprintf_s(szFileName, _T("capture-%04d-%02d-%02d-%02d-%02d-%02d-%03d-%05d.jpg"), LocalTime.wYear, LocalTime.wMonth, LocalTime.wDay, LocalTime.wHour, LocalTime.wMinute, LocalTime.wSecond, LocalTime.wMilliseconds, (int)fElapse);
-		KSJ_HelperSaveToJpg(pImageData, nCaptureWidth, nCaptureHeight, nCaptureBitCount, 90,  szFileName);
+		KSJ_HelperSaveToJpg(pImageData, nCaptureWidth, nCaptureHeight, nCaptureBitCount, 90,  szFileName);//存bmp格式图片
 #else
 		_stprintf_s(szFileName, _T("capture-%04d-%02d-%02d-%02d-%02d-%02d-%03d-%05d.bmp"), LocalTime.wYear, LocalTime.wMonth, LocalTime.wDay, LocalTime.wHour, LocalTime.wMinute, LocalTime.wSecond, LocalTime.wMilliseconds, (int)fElapse);
-		KSJ_HelperSaveToBmp(pImageData, nCaptureWidth, nCaptureHeight, nCaptureBitCount, szFileName);
+		KSJ_HelperSaveToBmp(pImageData, nCaptureWidth, nCaptureHeight, nCaptureBitCount, szFileName);//存jpg格式图片
 #endif
 	}
 
@@ -600,7 +711,7 @@ void CKSJDemoVCDlg::Capture()
 	pContext->nCaptureBitCount = nCaptureBitCount;
 	pContext->fElapse = fElapse;
 
-	PostMessage(WM_UPDATE_SNAP_STATIC, (WPARAM)pContext, TRUE);
+	PostMessage(WM_UPDATE_SNAP_STATIC, (WPARAM)pContext, TRUE);//将图片信息发送给显示控件进行显示
 
 	return;
 
@@ -609,10 +720,16 @@ CAPTURE_RETURN:
 	return;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+// 函数：CaptureXX
+// 功能：被线程调用的函数，根据是否循环的宏调用采集函数Capture
+// 参数：无
+// 返回：无
+// 说明：采集线程调用的函数
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::CaptureXX()
 {
-#ifdef CIRCLE_CAPTURE_IN_THREAD
+#ifdef CIRCLE_CAPTURE_IN_THREAD//是否在线程中循环采集
 	while (TRUE)
 	{
 		if (WAIT_OBJECT_0 == WaitForSingleObject(m_hCaptureThreadExitEvent, 0))
@@ -629,7 +746,14 @@ void CKSJDemoVCDlg::CaptureXX()
 	m_hCaptureThread = NULL;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+// 函数：CaptureX
+// 功能：线程函数，调用对话框的CaptureXX函数进行实现
+// 参数：
+//       pParam： 输入，对话框句柄
+// 返回：无
+// 说明：采集线程
+//-----------------------------------------------------------------------------
 UINT WINAPI CKSJDemoVCDlg::CaptureX(LPVOID pParam)
 {
 	CKSJDemoVCDlg *pDlg = (CKSJDemoVCDlg*)pParam;
@@ -637,7 +761,14 @@ UINT WINAPI CKSJDemoVCDlg::CaptureX(LPVOID pParam)
 	return 0;
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------
+// 函数：StartCaptureThread
+// 功能：启动\停止线程函数
+// 参数：
+//       bStart： 输入，TRUE启动线程，FALSE停止线程
+// 返回：无
+// 说明：启动或停止线程，且通过操作事件退出线程
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::StartCaptureThread(BOOL bStart)
 {
 	if (bStart)
@@ -671,15 +802,19 @@ void CKSJDemoVCDlg::StartCaptureThread(BOOL bStart)
 	}
 }
 
-
-
-// Capture Image, In Thread or In Proccess
+//-----------------------------------------------------------------------------
+// 函数：OnBnClickedCheckCapture
+// 功能：相机采集函数，根据宏定义选择启动线程或者只进行一次采集
+// 参数：无
+// 返回：无
+// 说明：点击界面的采集按钮调用此函数
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::OnBnClickedCheckCapture()
 {
 	if (m_nDeviceCurSel == -1)    return;
 	BOOL bCheck = ((CButton*)GetDlgItem(IDC_CHECK_CAPTURE))->GetCheck();
 
-#ifdef CAPTURE_THREAD
+#ifdef CAPTURE_THREAD//启动或停止采集线程
 	if (bCheck)
 	{
 		StartCaptureThread(TRUE);
@@ -698,6 +833,13 @@ void CKSJDemoVCDlg::OnBnClickedCheckCapture()
 #endif
 }
 
+//-----------------------------------------------------------------------------
+// 函数：UpdateInterfaceFunction
+// 功能：显示相机的支持功能列表
+// 参数：无
+// 返回：无
+// 说明：重新选择相机时调用此函数进行更新
+//-----------------------------------------------------------------------------
 void CKSJDemoVCDlg::UpdateInterfaceFunction()
 {
 	if (m_nDeviceCurSel == -1)    return;
