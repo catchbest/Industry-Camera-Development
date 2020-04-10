@@ -5,5 +5,7 @@
 作者：宋磊
 更新内容：更新Samples目录下vc、vb、c#、visionpro、halcon、opencv、qt类型的demo程序
 
-
+日期：2020-4-10
+作者：宋磊
+更新内容：添加批处理程序ignore.bat删除编译时产生的工程文件
 
