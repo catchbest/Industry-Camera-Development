@@ -1,4 +1,5 @@
-//#include "stdafx.h"
+#include <afx.h>     // 当使用MFC时需要包含
+#include <tchar.h>
 #include "KSJ_GS.H"
 
 const TCHAR * g_szDeviceType[] =
