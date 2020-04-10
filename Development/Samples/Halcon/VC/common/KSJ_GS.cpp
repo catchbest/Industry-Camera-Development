@@ -1,4 +1,5 @@
-//#include "stdafx.h"
+#include <afx.h>     //使用MFC的头文件
+#include <tchar.h>
 #include "KSJ_GS.H"
 
 const TCHAR * g_szDeviceType[] =

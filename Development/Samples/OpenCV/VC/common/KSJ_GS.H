@@ -1,15 +1,6 @@
 #ifndef  __KSJ_GLOBAL_STRING_H__
 #define  __KSJ_GLOBAL_STRING_H__
 
-#ifdef KSJAPI_EXPORTS
-#include <Windows.h>
-#include <tchar.h>
-#else
-#include <SDKDDKVer.h>
-#include <afxwin.h>         // MFC core and standard components
-#endif
-
-
 extern const TCHAR  *g_szDeviceType[];
 extern const int     g_nDeviceType;
 

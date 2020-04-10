@@ -1,4 +1,6 @@
 cd Samples\VC
+rd ipch /s /q
+del *.sdf *.suo *.log *.user *.filters *.ipch *.aps /s
 for /d %%i in (*) do ( 
 cd %%i
 rd x86 x64 /s /q
