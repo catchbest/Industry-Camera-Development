@@ -212,6 +212,17 @@ const TCHAR * g_szFovSkipItems[] =
 };
 const int g_nFovSkipItems = sizeof(g_szFovSkipItems) / sizeof(TCHAR*);
 
+const TCHAR* g_szStartEndMode[] =
+{
+	_T("Continue"),
+	_T("Rising Edge"),
+	_T("Falling Edge"),
+	_T("High Level"),
+	_T("Low Level"),
+	_T("Software"),
+};
+const int g_nStartEndMode = sizeof(g_szStartEndMode) / sizeof(TCHAR*);
+
 const TCHAR* g_szTriggerMode[] =
 {
 	_T("Internal"),

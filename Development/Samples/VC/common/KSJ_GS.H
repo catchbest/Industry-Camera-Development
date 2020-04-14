@@ -16,6 +16,9 @@ extern const int      g_nBayerMode;
 extern const TCHAR   *g_szFovSkipItems[];
 extern const int      g_nFovSkipItems;
 
+extern const TCHAR  *g_szStartEndMode[];
+extern const int     g_nStartEndMode;
+
 extern const TCHAR   *g_szTriggerMode[];
 extern const int      g_nTriggerMode;
 

@@ -3,25 +3,25 @@ rd ipch /s /q
 del *.sdf *.suo *.log *.user *.filters *.ipch *.aps /s
 for /d %%i in (*) do ( 
 cd %%i
-rd x86 x64 /s /q
+rd ipch x86 x64 /s /q
 del *.sdf *.suo *.log *.user *.filters *.ipch *.aps /s
 cd..)
 cd..
 cd QT
 for /d %%i in (*) do ( 
 cd %%i
-rd x86 x64 /s /q
+rd ipch x86 x64 /s /q
 del *.sdf *.suo *.log *.user *.filters *.ipch *.aps /s
 cd..)
 cd..
 cd OpenCV\VC\KSJDemoVC_Opencv
-rd x86 x64 /s /q
+rd ipch x86 x64 /s /q
 del *.sdf *.suo *.log *.user *.filters *.ipch *.aps /s
 cd.. 
 cd.. 
 cd..
 cd Halcon\VC\KSJDemoVC_Halcon
-rd x86 x64 /s /q
+rd ipch x86 x64 /s /q
 del *.sdf *.suo *.log *.user *.filters *.ipch *.aps /s
 cd.. 
 cd..
