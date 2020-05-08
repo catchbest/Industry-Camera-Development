@@ -1,4 +1,4 @@
-#include <afx.h>     //使用MFC的头文件
+#include <afx.h>     // 当使用MFC时需要包含
 #include <tchar.h>
 #include "KSJ_GS.H"
 
@@ -21,8 +21,8 @@ const TCHAR * g_szDeviceType[] =
 	_T("xxxxxxx UC1000C(MRNN)"),
 	_T("xxxxxxx UC900C(MRYN)"),
 	_T("xxxxxxx UC1000C(MRYN)"),
-	_T("Jelly2 MUC120C(MRYYO)"),
-	_T("Jelly2 MUC120M(MRYYO)"),
+	_T("Elanus2 UC130C(MRYY)"),
+	_T("Elanus2 UC130M(MRYY)"),
 	_T("xxxxxxx UD140C(SRNN)"),
 	_T("xxxxxxx UD140M(SRNN)"),
 	_T("xxxxxxx UC36C(MGNN)"),
@@ -43,8 +43,8 @@ const TCHAR * g_szDeviceType[] =
 	_T("Jelly2 MUC36C(MGYYO)"),
 	_T("Jelly2 MUC36M(MGYYO)"),
 	_T("xxxxxx MUC130C(MRYY)"),
-	_T("xxxxxx MUC130M(MRYY)"),
-	_T("xxxxxx MUC320C(MRYY)"),
+	_T("Jelly2 MUC130M(MRYY)"),
+	_T("Jelly2 MUC320C(MRYY)"),
 	_T("Jelly2 MUC500C(MRYYO)"),
 	_T("Jelly2 MUC500M(MRYYO)"),
 	_T("xxxxxx MUC900C(MRYY)"),
@@ -115,8 +115,8 @@ const TCHAR * g_szDeviceType[] =
 	_T("Jelly6 MU3HS500C(SRYYO)"),
 	_T("Jelly6 MU3HS500M(SRYYO)"),
 
-	_T("Jelly6 MU3HS230C(SRYYO)"),
-	_T("Jelly6 MU3HS230M(SRYYO)"),
+	_T("Jelly6 MU3HS230C(SGYYO)"),
+	_T("Jelly6 MU3HS230M(SGYYO)"),
 
 	_T("Jelly6 MU3HI400C(IGYYO)"),
 	_T("Jelly6 MU3HI400M(IGYYO)"),
@@ -136,6 +136,16 @@ const TCHAR * g_szDeviceType[] =
 
 	_T("Jelly6 MU3S321C(SGYYO)"),
 	_T("Jelly6 MU3S321M(SGYYO)"),
+
+	_T("Jelly3 MU3S641M(SRYYO)"),
+	_T("Jelly3 MU3S1201M(SRYYO)"),
+	_T("Jelly6 MU3HS2001M(SRYYO)"),
+
+	_T("Jelly3 MU3S211M(SRYYO)"),
+	_T("Jelly3 MU3C36C(MGYY)"),
+	_T("Jelly3 MU3C36M(MGYY)"),
+	_T("Jelly6 MU3HS1200C(SRYYO)"),
+	_T("Jelly6 MU3HS1200M(SRYYO)"),
 
 	_T("UNKOWN TYPE"),
 	_T("UNKOWN TYPE"),
@@ -211,6 +221,17 @@ const TCHAR * g_szFovSkipItems[] =
 	_T("8 x 8 Skip"),
 };
 const int g_nFovSkipItems = sizeof(g_szFovSkipItems) / sizeof(TCHAR*);
+
+const TCHAR* g_szStartEndMode[] =
+{
+	_T("Continue"),
+	_T("Rising Edge"),
+	_T("Falling Edge"),
+	_T("High Level"),
+	_T("Low Level"),
+	_T("Software"),
+};
+const int g_nStartEndMode = sizeof(g_szStartEndMode) / sizeof(TCHAR*);
 
 const TCHAR* g_szTriggerMode[] =
 {
@@ -383,7 +404,8 @@ const TCHAR *g_szFunction[] =
 	_T("KSJ_SUPPORT_COLORMODE_PROGRAM"),      // 是否支持固化色彩模式
 	_T("KSJ_SUPPORT_COLORMATRIX_PROGRAM"),    // 是否支持将HWB,HCCM校正矩阵固化
 	_T("KSJ_SUPPORT_SNAP_BUTTON"),            // 
-	_T("KSJ_SUPPORT_IO_NUM")
+	_T("KSJ_SUPPORT_IO_NUM"),
+	_T("TRIGGER_MODE_FIXED_HIGHLOW_FRAMERATE")
 };
 const int g_nFunction = sizeof(g_szFunction) / sizeof(TCHAR*);
 
