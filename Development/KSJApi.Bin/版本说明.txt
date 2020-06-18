@@ -1,0 +1,829 @@
+2020.06.16
+v6.0.122.65
+修正停止预览机制（主要是修正U3C500M相机停止出现的问题）
+修正imx174/imx290设置曝光不能和采集同时进行的问题
+
+2020.06.08
+v6.0.122.64
+修改多进程使用相机机制，多个进程可以同时查询相机，但是只有一个进程能够控制相机/采集图像
+修改出现错误相机的时候，造成所有正常相机也无法枚举
+
+2020.06.04
+v6.0.122.63
+把3D ZMap图像回调放在3D点云回调之前
+修改相机恢复逻辑，出现采图异常发送DB，由硬件决定恢复操作
+
+2020.04.26
+v6.0.122.62
+更改3D采集过程的帧率计算
+在3D采集线程开始之前把FPGA_EmptyFrameBuffer()换成Reset(),确保数据都被清除
+
+2020.04.25
+v6.0.122.61
+用户写flash和硬件序列号的时候，增加有效性检查，防止相机出错
+流模式开启，也能够验证FOV
+
+2020.04.07
+v6.0.122.60
+修改一些逻辑，log路径支持长文件名
+
+2020.04.03
+v6.0.122.59
+相机恢复逻辑按照最新的方案做了修改
+删除了库里面一些函数，将流模式和普通采集合并到一起了
+
+2020.03.19
+v6.0.122.58
+修正多相机多线程同时进行录像接口初始化，导致程序崩溃的问题
+
+2020.03.17
+v6.0.122.57
+修改MU3S40M相机的时钟频率
+
+2020.02.20
+v6.0.122.56
+修正无法识别UC500M相机的问题
+
+2020.01.16
+v6.0.122.55
+增加WaterMark新函数，水印信息更新到最新版本
+
+2020.01.08
+v6.0.122.54
+添加MU3S641M相机的flash功能，mu3s40m相机高精度固定帧率设置
+
+2020.01.07
+v6.0.122.53
+修正MU3S641M相机的一些设置顺序问题
+
+2019.12.30
+v6.0.122.52
+添加MU3S641M相机，修正一些相机的FOV设置问题（非线性相机行列Size至少是2的倍数）
+
+2019.12.19
+v6.0.122.51
+修正3D profiles numbers 错误，修正StartStream/StopStream过程
+用户数据录像接口从Manager切换到Device，能够多通道录像
+
+2019.12.16
+v6.0.122.50
+修正3D数据回调参数错误
+
+2019.12.11
+v6.0.122.49
+IMX178相机的最小分辨率设置为376X320
+
+2019.12.04
+v6.0.122.48
+程序起来以后，Stop Stream mode不再发送packet end
+
+2019.12.04
+v6.0.122.47
+去掉预览线程的权限设置
+3D SDK完成测试版本
+
+2019.11.28
+v6.0.122.45
+修正3DROI设置的问题，修正取得Gain参数问题
+
+2019.11.22
+v6.0.122.44
+修正终止采集问题
+
+2019.11.21
+v6.0.122.43
+修正一些函数返回值错误
+
+2019.11.20
+v6.0.122.42
+编码器触发频率寄存器初值bug，Init3D之后直接打开flash功能
+
+2019.11.19
+v6.0.122.41
+增加UC500C相机的支持
+修正KSJ_EmptyFrameBuffer接口的问题
+
+2019.11.06
+v6.0.122.40
+增加3D点云计算接口
+修正MUC500C，MUC230C相机的bayer模式设置，FOV行列起始位置限定
+
+2019.11.05
+v6.0.122.39
+修改相机bayer模式参数保存错误，减少emptybuffer操作发送指令
+
+2019.10.31
+v6.0.122.38
+修正MU3C1401C相机的默认Bayer模式
+
+2019.10.30
+v6.0.122.37
+修正相机Skip设置Bug
+
+2019.10.18
+v6.0.122.36
+增加新的触发模式[开始结束采集]
+
+2019.8.23
+v6.0.122.34
+修正MUC320C skip2出来竖条的问题
+
+2019.8.22
+v6.0.122.33
+修正UC130C/UC130M无法使用的问题
+
+2019.8.12
+v6.0.122.32
+修正1200C，2000C bayer模式错误
+
+2019.8.09
+v6.0.122.31
+修正IMX174 FOV设置错误
+
+2019.8.07
+v6.0.122.30
+修正闪光设置的一些问题
+
+2019.7.30
+v6.0.122.28
+添加io状态和io值的保存
+
+2019.6.27
+v6.0.122.27
+修正workmode预设置寄存器值错误恢复
+
+2019.6.27
+v6.0.122.26
+增加M130增加闪光灯控制
+
+2019.6.17
+v6.0.122.24
+增加流模式
+增加3D接口
+
+2019.3.27
+v6.0.122.21
+修正HengRui OEM的开发
+修正1200C相机Skip2X2的Bug
+
+2019.3.27
+v6.0.122.20
+修正MU3HS2000M新逻辑版本判断的逻辑。
+
+2019.3.15
+v6.0.122.19
+修正E130 E200第3-18列图像数据错误。
+
+2019.3.13
+v6.0.122.18
+IMX183(2000C/M)相机设置修改，增加硬件AOI功能
+
+2019.3.05
+v6.0.122.17
+添加高低电平固定帧率触发模式
+
+2019.2.20
+v6.0.122.16
+那bayer模式和对比度等参数保存到相机内
+IMX187相机去掉设置HMAX，由硬件控制
+提高有外触发切换到内触发的速度，出现无效帧的时候，仅进行Reset操作（原来是Recover）
+
+2019.1.23
+v6.0.122.14
+修正IMX174相机右上角出现红线的BUG
+
+2018.12.25
+v6.0.122.11
+修正2.0相机在切换模式过程中，出现错误帧的问题
+添加新相机MU3HS2001M
+修正软件的一些BUG
+
+2018.12.4
+v6.0.122.6
+增加相机MU3S1201M
+修正130M相机的增益设置
+修正MT9T001相机在Skip2/4/8模式下的错误
+
+2018.10.9
+v6.0.122.5
+Sensor IMX226/IMX183添加flash功能完善
+MU3S1200C/M增加固定帧率
+
+2018.9.11
+v6.0.122.4
+Sensor IMX226 添加flash功能
+优化IMX287同步寄存器的逻辑
+
+2018.8.13
+v6.0.122.2
+MU3I130M相机增加16bit数据输出
+
+2018.7.20
+v6.0.122.1
+增加新的相机 Jelly MUC130M
+
+
+
+
+
+V4.0.86.3
+修改MUC36.MGYY的固定帧率问题。
+V4.0.86.4
+增加COLORMODE设置。
+
+V4.0.86.5
+修改了关于LUT, 白平衡，颜色校正的接口函数，以前用户使用的相关函数将不再支持，请使用新的接口函数。
+
+
+V4.0.86.6
+对用户设置硬件白平衡和硬件颜色校正时，设备是否支持做了判断。
+对于固化LUT数据时，同时固化LUT信息。
+针对UD274M.SGYY固件V5.2进行配置。
+针对UD205M.SGYY固件V5.1进行配置。
+针对UD205C.SGYY固件V5.1进行配置。
+针对UC500C.MRYY固件V5.2进行配置。
+
+V4.0.86.7
+针对UC320C.MRYY固件V5.2进行配置。
+针对MUC36M.MRYY固件V5.1进行配置。
+
+v4.0.86.8
+修改了使用硬件CCM时，会同时再次进行硬件WB的问题，需要升级FPGA程序并升级KSJAPI。
+针对UC500M.MRYY固件V5.2进行配置。
+
+v4.0.86.9
+修改了曝光变化时，丢弃一帧没有同步限制的错误。
+针对UC1400C.MRYY固件V5.3进行配置。
+修改几处版本判断错误。
+针对UC500M.MRYY固件V5.1进行配置。
+
+V4.0.86.10
+对于UC1400C,U3V130,U3C120的设置曝光行同步问题做了修改。
+针对UC500M.MRYY固件V5.2进行补充配置。
+
+v4.0.86.11
+针对固定帧率新协议。
+针对MUC36M.MGYYO.V5.2高速固件版本进行配置。
+针对MUC36M.MGYYO.V4.4版本时钟频率获取做了修改。
+KSJ_SensorModeGet,KSJ_SensorModeSet不再支持。
+修改MUC36M.MGYYO视场改变中间丢弃一帧卡死的错误。
+
+V4.0.86.12
+增加了对500万相机的闪光灯模式的控制。
+enum KSJ_FLASHMODE { KSJ_FM_TROW, KSJ_FM_SIMULTANEOUSEXPOSURE, KSJ_FM_SHUTTERWIDTH };
+KSJ_API  int __stdcall KSJ_FlashSetMode ( int nChannel, KSJ_FLASHMODE FlashMode   );
+KSJ_API  int __stdcall KSJ_FlashGetMode ( int nChannel, KSJ_FLASHMODE *pFlashMode );
+增加了KSJ_SetFixedFrameRateEx函数用于通过设置FPGA触发间隔来固定帧率。可以通过KSJ_SUPPORT_FIXED_FRAMERATE_EX来查询是否支持。
+
+增加了对500万相机的Sensor工作模式的支持。
+enum KSJ_SENSORMODE { KSJ_SM_TRIGGER_MODE, KSJ_SM_FREERUN_MODE, KSJ_SM_GRR_MODE };
+KSJ_API  int __stdcall KSJ_SensorModeSet ( int nChannel, KSJ_SENSORMODE SensorMode  );
+KSJ_API  int __stdcall KSJ_SensorModeGet ( int nChannel, KSJ_SENSORMODE *SensorMode  );
+
+增加了固定触发帧率控制（需与相应的FPGA版本号支持），可通过查询KSJ_SUPPORT_FIXED_FRAMERATE_EX来获取是否支持。
+
+饱和度和色度查找表放到启动时分配，黑白的相机不再分配内存。
+
+v4.0.86.13
+增加了KSJ_GetSerials和KSJ_SetSerials函数
+
+v4.0.86.14
+增加了enum KSJ_DEVICESTATUS { KSJ_DS_CLOSE, KSJ_DS_OPEN };
+KSJ_API  int __stdcall KSJ_DeviceGetStatus( int nChannel, KSJ_DEVICESTATUS *pDs );用于用户控制多台设备时使用。
+修改了KSJ_Init行为，重复调用不影响之前的开启设备。以前版本，重复调用会删除和关闭以前打开的设备。
+KSJ_DeviceGetCount不会关闭之前已经打开的设备。
+增加了KSJ_FrameRestart函数，用户修改曝光后立刻生效采集的处理。
+增加了KSJ_API  int __stdcall KSJ_WhiteBalanceAutoSetCallBackEx( int nChannel, KSJ_WB_CALLBACK_EX pfCallBackEx, void *lpContext ); 便于c#语言声明回调函数。
+
+v4.0.86.15
+修改了默认读取错误后对相机不进行恢复操作，只做复位设备操作。并且超时时间由原来的8秒钟改为5秒钟。
+加入了Invalid Frame的Reread处理。
+
+v4.0.86.16
+修改了使CCM,WB模式无效的返回值问题。
+
+v4.0.86.17
+增加16bit到16bit的Gamma查找表，由硬件操作。
+KSJ_API  int __stdcall KSJ_GammaLutFileDownload( int nChannel, const TCHAR *pszKtbFile );
+KSJ_API  int __stdcall KSJ_GammaLutDataDownload( int nChannel, unsigned short *pData, int nWords );
+KSJ_API  int __stdcall KSJ_GammaLutSetEnable( int nChannel, bool bEnable   );
+KSJ_API  int __stdcall KSJ_GammaLutGetEnable( int nChannel, bool *pbEnable );
+KSJ_API  int __stdcall KSJ_GammaLutFileProgram( int nChannel, TCHAR *pszFile );
+KSJ_API  int __stdcall KSJ_GammaLutDataProgram( int nChannel, unsigned short *pData, int nWords );
+
+// 从固化到EEPROM相机中读出LUT数据
+KSJ_API  int __stdcall KSJ_GammaLutDataReadout( int nChannel, unsigned short *pData, int *pnWords );
+增加了Gamma Lut的固化。
+增加了对白平衡校正矩阵，色彩校正矩阵的固化及上载。
+KSJ_API  int __stdcall KSJ_GammaLutInfoProgram  ( int nChannel, unsigned short wValue  );
+KSJ_API  int __stdcall KSJ_GammaLutInfoReadout  ( int nChannel, unsigned short *pValue );   
+KSJ_API  int __stdcall KSJ_HWBMatrixProgram( int nChannel, float fMatrix[3] );
+KSJ_API  int __stdcall KSJ_HWBMatrixReadout( int nChannel, float fMatrix[3] );
+KSJ_API  int __stdcall KSJ_HWBMatrixUpload( int nChannel, float fMatrix[3] );
+KSJ_API  int __stdcall KSJ_HCCMMatrixProgram( int nChannel, float fMatrix[3][3] );
+KSJ_API  int __stdcall KSJ_HCCMMatrixReadout( int nChannel, float fMatrix[3][3] );
+KSJ_API  int __stdcall KSJ_HCCMMatrixUpload( int nChannel, float fMatrix[3][3] );
+添加了对UC900C.MRYY.V5.1固件的支持。
+
+对于MT9M001硬件的Flip功能无效，使用软件Flip。由于硬件Flip在长曝光下图像不对（不作为发布版本）。
+针对UC500M.MRNN.V2.0版本固件获取错误PIX_CLK问题做了兼容性修改。
+加入了bmSetColorMode能力的判断。
+对于MU3E200M/C 切换分别率出现坏帧的固件V8.3，做了丢弃处理。
+针对UC500C(MRNN)最后两列无效的问题作了修补。
+
+v4.0.86.18
+对于UC1400C.MRYY.V5.3的固件升级版本作了支持。V5.31-V5.39
+
+V4.1.86.20
+为了使帧存相机外触发引脚及闪光灯引脚作为普通IO，增加如下函数。
+    KSJ_GpioInModeSet
+    KSJ_GpioInModeGet
+    KSJ_GpioInStatusGet
+    KSJ_GpioOutModeSet
+    KSJ_GpioOutModeGet
+    KSJ_GpioOutStatusSet
+    KSJ_GpioFilterSet
+    KSJ_GpioFilterGet
+	增加了恢复时对FPGA寄存器的恢复，由于以前FPGA版本有可能对不支持的寄存器读写发生错误，所以此版本不一定兼容之前老版本相机。
+
+为了使老版本程序可以不改程序的情况下，设置帧存相机外触发引脚及闪光灯引脚作为普通IO，增强了如下函数功能：
+	KSJ_SnapButtonStatus
+	KSJ_GpioSetDirection
+	KSJ_GpioGetDirection
+	KSJ_GpioSetStatus
+	KSJ_GpioGetStatus
+	主要，对于帧存相机，用户可以看作只有两个IO，IO0,IO1.IO0设置为输入时，表示作为普通IO，设置为输出时，将作为外触发输入功能。
+	IO1设置为输出时，表示作为普通IO,设置为输入时，将作为闪光灯输出功能。
+	当IO0作为输入时，帧存相机可以使用KSJ_SnapButtonStatus，KSJ_GpioGetStatus函数。
+	当IO1作为输出时，帧存相机可以使用KSJ_GpioSetStatus函数。
+
+V4.1.90.20
+加入了MU3S320C/M,MU3S640C/M的基本功能，完善中，此版本不能发布。
+
+V4.1.92.22
+修改了能力配置，划分为FPGA功能，FIRMWARE功能，SENSOR功能，HARDWARE功能。
+加入了CUD285C/M的基本功能。完善中，此版本不能发布。
+
+V5.0.92.0
+调整程序结构，有较大的改动，测试版，支持新相机。
+如下设备型号排位调整：注意固件必须符合排位顺序！
+	KSJ_MU3S230C_SGYYO,   // Jelly3
+	KSJ_MU3S230M_SGYYO,   // Jelly3
+	KSJ_MU3S640C_SRYYO,   // Jelly3
+	KSJ_MU3S640M_SRYYO,   // Jelly3
+	KSJ_CUD285C_SGYYO,
+	KSJ_CUD285M_SGYYO,
+
+V5.2.92.2
+最小平台改为XP,增加了水印功能函数.
+此版本不支持MUC36C.MGYYO固件版本V2.1, V2.3
+此版本不支持MUC36M.MGYYO固件版本V2.0,V2.1, V2.2,V2.6
+修改了enum KSJ_WB_MODE 的定义顺序{ KSJ_WB_DISABLE, KSJ_SWB_AUTO_ONCE, KSJ_SWB_AUTO_CONITNUOUS, KSJ_SWB_PRESETTINGS, KSJ_SWB_MANUAL, KSJ_HWB_PRESETTINGS, KSJ_HWB_AUTO_ONCE, KSJ_HWB_AUTO_CONITNUOUS, KSJ_HWB_MANUAL };
+
+V5.2.94.2
+加入对	
+KSJ_MU3S231C_SGYYO,   // Jelly3
+KSJ_MU3S231M_SGYYO,   // Jelly3
+支持
+
+V5.2.94.5
+修改了支持bmGpioNormal功能的相机的IO数，V5.2.94.4为0，新的为2
+
+V5.2.94.6
+增加MU3C1000C(MRRYO)_v7.0.txt功能列表
+
+V5.2.94.7
+修复用户调用KSJ_UnInit函数后会影响INI设定的LogEnable功能。
+支持UC500M.MRYN固件v5.0相机
+支持UC500M.MRNN固件v5.0相机
+对MU3E200C的最后两列做了修补。
+对MU3E130C/M,MU3E200C/M的初始化分辨率抽点模式不正确做了修改。
+对于KSJ_HelperStretchBmp支持行不是4的整数倍字节时的缩放。
+对于KSJ_HelperSaveToBmp支持行不是4的整数倍字节时存储。
+
+V5.2.94.8
+增加了16位的软件FLIP,MIRROR功能。
+16位与Lut设置冲突问题。
+修正CCD AD9923A相机复位时曝光改变的问题。
+
+V5.2.94.9
+修改了由于在回调函数中调用控件操作或者SendMessage之类的操作时发生的死锁情况。
+
+V5.2.96.0
+增加了MU3S500M/C(SGYYO)相机的支持，曝光计算部分待完善。
+
+V5.2.96.1
+添加了U3C500M/C(MRYNO)相机的外触发功能支持。
+
+V5.2.96.2
+修改了U3C500M/C(MRYNO)相机的外触发方式为高电平触发。
+U3C500C(MRYNO)修改最后两列。
+
+V5.2.96.3
+等待线程结束时不再PeekMessage。不适用于C#调用。
+
+V5.2.96.4
+等待线程结束时不再PeekMessage。不适用于C#调用。
+AE，AWB，AF启动时去掉必须预览的限制。
+
+V5.2.96.5
+完善MU3S500M/C程序。
+修正MU3S231M/C, MU3S640M/C的0ms曝光出错问题。
+修正MU3S231M/C, MU3S640M/C曝光时钟频率。
+修正MUC36C(MGYFO)翻转的Bayer问题。
+等待线程结束时PeekMessage。适用于C#调用。
+支持MU3S230M/231M的硬件垂直水平翻转。
+
+v5.2.98.5
+加入MU2S1200M/C支持，待测试。
+
+v5.2.98.6
+完善MU3S1200M/C曝光功能。
+修改U3S500M/C获取曝光时间不正确问题。
+
+v5.2.98.7
+修改MU3S500C/M,MU3S1200C/M功能列表
+
+V5.2.98.8
+等待线程结束时不再PEEK MESSAGE.
+
+V5.2.98.9
+完善MU3S1200C/M曝光控制功能
+修改自动曝光区域设置的一处Bug
+
+V5.2.98.10
+修改MU3S500M/C曝光在设备复位时恢复初始值的错误。
+
+V5.2.98.11
+使用PEEK MESSAGE.
+V5.2.98.12
+使用PEEK MESSAGE. 停止预览前不再关闭回调,防止用户回调中操作控件会锁死。
+修改MT9M001默认偏移20,12
+
+V5.2.98.13
+改进自动曝光功能
+添加自动曝光功能函数
+	KSJ_AESetMaxCount
+	KSJ_AESetTarget
+	KSJ_AESetExposureTimeRange
+	KSJ_AEGetExposureTimeRange
+	KSJ_AESetCallbackEx
+	KSJ_AEGetStatusEx
+	KSJ_AEStartEx
+
+KSJ_AECALLBACK和KSJ_AESetCallback可以被替换成最新的函数KSJ_AECALLBACKEX和KSJ_AESetCallbackEx
+
+V5.2.98.14
+修改UC320C(MRNN),UC320C(MRYY)的最后一列坏点。
+AEGetStatusEx也会返回KSJ_AEStart的启动状态。
+
+V5.2.102.1
+增加		KSJ_MU3L2K7C_AGYYO,
+		KSJ_MU3L2K7M_AGYYO,
+		KSJ_MU3L4K3C_AGYYO,
+		KSJ_MU3L4K3M_AGYYO
+		4款新设备，功能完善中。
+可以改下KSJApi.ini进行配置。
+修正了自动曝光区域显示颠倒错误。
+
+V5.2.102.2 for c#
+修改了MU3C120M/C调节曝光时的一处bug。
+
+V5.2.102.3 no for c#
+修改了MU3C120M/C调节曝光时的一处bug。
+
+V5.2.102.4 for c#
+修改固定帧率读取的一处bug，初始默认固定帧率为30帧。
+取消MU3E130C/M,MU3E200C/M超频设置。
+去除自动曝光时对自动曝光区域的数据修改。
+对MU3E130C/M,MU3E200C/M不同步LineLength
+
+v5.2.102.5 for c#
+对于MU3C640M相机，修正垂直偏移设置图像不正确。
+对于MU3E130C/M,MU3E200C/M闪光灯控制的Bug
+
+v5.2.102.7 for c#
+支持MU3L2KC/M
+支持MU3S640 2X2BINNING
+
+V5.2.102.6 not c#
+使用VC编程时使用
+支持MU3L2KC/M
+支持MU3S640 2X2BINNING
+
+V5.2.102.8 not c#
+使用VC编程时使用
+由于MU3S1200不支持寄存器的读取，内部无需备份并判断，修正曝光设置不同步的问题。
+
+V5.2.102.10 not c#
+V5.2.102.9 c#
+添加MU3S1200一种可以抽点的模式，分辨率为4152x2160，只有这种模式下支持SKIP2抽点
+确定MU3L2K7M/C功能列表
+MU3S640 2X2BINNING完善。
+
+V5.2.102.12 not c#
+V5.2.102.11 c#
+修改保存jpg文件错误。
+
+V5.2.102.13 c#
+增加了对AE,AWB的调试信息输出。
+
+V5.2.102.15 c#
+初始化自动白平衡区域为预览图像整个区域,修正了之前版本新的软件自动白平衡区域无法设置的问题。
+增加USERCALL日志。
+
+
+V5.2.102.17 c#
+同步采集函数CS_CAPTURE
+鼠标消息会由api接收再回传给用户。
+
+V5.2.102.18 FOR VC
+不需要PEEK MESSAGE
+
+V5.2.102.19 c#
+在等待关闭预览流时，PEEK MESSAGE会丢弃WM_LBUTTONDOWN UP消息，防止点击消息用户重复调用capture函数。
+
+
+V5.2.102.21 c#
+采集关闭预览线程之前判断预览和采集视场是否一致
+211
+KSJ_SetRecover log的错误。
+
+V5.2.102.23 c#
+修正MU3S1200的曝光范围无法获取的错误。
+修正MU3S1200曝光区域计算越界的问题。
+修正log日志关于KSJ_AEGetRegion的错误。
+采集函数内部不进行自动曝光和自动白平衡处理，只在预览线程里处理。当采集预览视场一致时有些客户想在回调中调用采集函数（原则上不能在回调中调用采集函数！）
+回调中调用采集函数的同时又开启自动曝光和自动白平衡时会出现程序重入回调锁死的情况，所以去掉了在采集函数中进行自动曝光和自动白平衡的处理。
+
+V5.2.102.24 vc
+采集函数可以进行自动曝光和自动白平衡处理。回调中不允许调用采集函数。
+
+V5.2.102.26 vc
+修改1400,1000,900w相机X_END,Y_END有可能设置无效的问题。
+
+V5.2.102.28 vc
+增加了KSJ_AESetPeakAveRatio和KSJ_AEGetPeakAveRatio两个函数
+
+V5.2.102.30 VC
+增加了对KSJ_MU3L2K7C_AGYYO, KSJ_MU3L2K7M_AGYYO,KSJ_MU3L4K3C_AGYYO,KSJ_MU3L4K3M_AGYYO四款相机的支持，
+并增加了线阵相机的自动黑平衡校正功能，插电自动，恢复自动。
+增加了线阵相机特有的函数：
+	KSJ_API  int __stdcall KSJ_AWAIBA_IsUsed( int nChannel, bool *bUsed );
+	KSJ_API  int __stdcall KSJ_AWAIBA_GetSegmentNum(int nChannel, int *pnSegNum );
+
+	KSJ_API  int __stdcall KSJ_AWAIBA_SetBlackLevel (int nChannel, int nSegIndex, int nBlackLevel);
+	KSJ_API  int __stdcall KSJ_AWAIBA_GetBlackLevel (int nChannel, int nSegIndex, int *pnBlackLevel);
+	KSJ_API  int __stdcall KSJ_AWAIBA_AutoBlackLevel(int nChannel, int nSegIndex);
+
+将KSJ_RED，KSJ_GREEN映射到4K线阵相机的两个Segment增益上。
+将KSJ_RED映射到2K线阵相机的增益上。
+对于使用AD9923A的CCD相机，将VGAGAIN,CLAMPLEVEL,CDSGAIN分别映射到KSJ_RED,KSJ_GREEN,KSJ_BLUE增益上，并且支持原有设置。
+
+V5.2.102.32 VC
+修正了KSJ_MU3L2K7C_AGYYO, KSJ_MU3L2K7M_AGYYO第一次做黑平衡无法正确的问题。
+
+V5.2.102.34 VC
+KSJ_MU3L4K3C_AGYYO, KSJ_MU3L4K3M_AGYYO黑平衡操作自动切换到内触发模式。
+Preview开始之前加入清空帧存。
+设置MultiFrame之后加入清空帧存。
+
+
+V5.2.102.36 VC
+完善KSJ_MU3L2K7C_AGYYO, KSJ_MU3L4K3M_AGYYO，自动黑平衡效果改善。
+0帧和坏帧不做对设备进行恢复操作。
+
+V5.2.102.38 VC
+添加了与线阵相机增益相关的函数
+	KSJ_AWAIBA_GetGainRange
+	KSJ_AWAIBA_SetGain
+	KSJ_AWAIBA_GetGain
+添加了自动黑平衡范围获取函数
+	KSJ_AWAIBA_GetBlackLevelRange
+
+V5.2.102.40 VC
+修改了KSJ_AWAIBA_GetGain获取不到增益的问题。
+
+
+V5.2.102.42 VC
+增加了MUC500M_MRYYO,MUC500C_MRYYO的支持。
+
+V5.2.102.44 VC
+修正PreviewCallbackEx回调恢复问题。
+
+V5.2.102.44 VC
+修正MU3C1400C colstart设置死机问题。
+
+V5.2.104.46 VC
+增加了对MU3H2000C/M的支持
+修改了MU3S1200C/M的曝光计算
+初始化自动白平衡区域为最大视场，以前版本为4个像素宽高，会导致如果用户不设置区域，计算结果不正确。
+
+V5.2.104.48 VC
+为了判断是否是切换触发模式产生的一帧，不再进行REREAD_WHEN_BADFRAME。当切换模式时会获取到一帧坏帧,返回（RET_INVALIDFRAME或RET_ZEROFRAME)。
+
+V5.2.104.50 VC
+修改KSJ_RecordStartExEx和KSJ_RecordAddOneFrame，此2函数与nChannel无关。
+
+V5.2.104.52 VC
+为MU3H2000C/M添加skip2模式。
+修改MU3H2000C/M功能列表。
+
+V5.2.108.52 VC
+支持MU3H500C/M, MU3H230C/M
+
+V5.2.108.54 VC
+使用KSJBayerFilter动态链接库。MU3H2000C/M模式切换同步曝光时间。
+
+V5.2.108.56 vc
+增加了Flat Field Correct相关的函数
+KSJ_SetFlatFieldCorrectionFieldOfView
+KSJ_GetFlatFieldCorrectionFieldOfView
+KSJ_MakeDarkFrame
+KSJ_MakeFlatFieldFrame
+KSJ_PreviewSetFlatFieldCorrection
+KSJ_PreviewGetFlatFieldCorrection
+KSJ_CaptureSetFlatFieldCorrection
+KSJ_CaptureGetFlatFieldCorrection
+KSJ_SaveFlatFieldCorrection
+KSJ_LoadFlatFieldCorrection
+
+v5.2.108.58 vc
+对MU3H500C/M相机提速。
+
+v5.2.108.60 vc
+PreviewCallBackEx返回DC内存指针。
+
+V5.3.108.60 VC
+增加了如下三个函数：
+	KSJ_PreviewStartEx
+	KSJ_PreviewGetStatusEx
+	KSJ_PreviewGetFrameRateEx
+可以设置开启预览时，采集与显示并行。当并行预览开启时，可以获取采集帧率和显示帧率。在并行预览时，用户调用采集内部将不再关闭预览，内部会暂停主预览再自动切换到采集视场进行采集，采集结束后会自动恢复预览。
+
+V5.3.108.62 VC
+修改了并行显示一处同步错误。
+增加了KSJ_TESTCAMERA设备，供内部测试使用。
+
+v5.3.108.64
+修改了由于5.2.108.56之后，FFC引起的对CCD相机无法识别的问题。
+
+v5.3.108.66
+修正MU3H2000C/M 初始化曝光值错误。
+
+V5.3.108.68
+有些相机KSJ_GetParamRange的KSJ_EXPOSURE返回RET_NOTSUPPORT错误。
+
+V5.3.111.68
+增加了对MU3HI400C/M的支持，偏移，增益条件有些问题还不明确，等厂家反馈，可以给客户测试。
+
+V5.3.111.70
+增加了对MU3HI400C/M的能力配置。
+
+V5.3.111.72
+修改MUC36C/M竖条问题。
+
+v5.3.111.74
+修改MU3S320/321,MU3H320小分辨率帧速慢的问题。
+
+V5.3.113.76
+增加MU3HI400C/M, MU3HI401C/M
+
+v5.3.115.76
+增加MU3S40C/M,测试版本，功能列表未完善。
+
+v5.3.115.78
+恢复时找到相同设备型号，序号，固件版本号进行恢复。
+
+v5.3.115.80
+并行线程退出等待时间延长。
+
+v5.3.115.82
+恢复在raw图上做contrast，brightness，gamma的处理。
+
+v5.3.115.84
+640相机读取默认列错误。
+
+2017.11.23
+v5.3.115.86
+修复MU3C1400C不出图问题。no binning。
+
+2018.1.30
+v6.0.117.0
+重新整理了功能列表。
+支持MU3S210C.还不支持MU3S210M
+这个版本对原有程序架构做了较大的改动，先不推荐给老客户更新使用，除非使用新的型号相机。
+
+2018.1.30
+v6.0.117.1
+对于MU3C120C支持2x2抽点的binning模式。
+
+2018.1.30
+v6.0.117.2
+MU3S210C支持长曝光及视场切换采集自动丢掉坏帧。
+
+2018.1.30
+v6.0.117.3
+设置所有的fToffset=0.0f。
+改善2K线扫自动黑平衡操作。4K未测试。
+
+2018.2.2
+v6.0.117.4
+支持MUC120C(MGYYO),MUC120M(MGYYO)两款新的替代型号相机。
+测试了4K.
+
+2018.2.2
+v6.0.117.5
+增加了4个Flash函数KSJ_FlashEnableSet，KSJ_FlashEnableGet，KSJ_FlashInvertSet，KSJ_FlashInvertGet替代原来的KSJ_FlashControlSet，KSJ_FlashControlGet
+
+
+2018.2.6
+v6.0.119.5
+增加MU3I130C_IGYYO, MU3I130M_IGYYO支持。
+
+2018.3.19
+v6.0.119.6
+修改FFC文件加载不生效的问题。
+
+2018.3.19
+v6.0.119.7
+增加FPGA支持的ROI功能。
+支持Calibration接口。	
+    KSJ_PreviewSetCalibration
+	KSJ_PreviewGetCalibration
+	KSJ_CaptureSetCalibration
+	KSJ_CaptureGetCalibration
+	KSJ_LoadCalibrationMapFile
+	KSJ_SetCalibrationMapMode
+	KSJ_GetCalibrationMapMode
+
+修改MU3I130支持硬件Flip，软件Mirror。修改MU3I130 Capability，时钟提高。
+修改MU3I130的曝光计算ms为单位。
+注意：此版本不支持MU3E200C(EGYYO) FPGA6.1版本。
+
+2018.3.23
+v6.0.121.8
+增加MU3S321C/M型号相机。
+修改lut，gamma lut的恢复加载按照eeprom中的表进行恢复。
+修改MU3C120C/M的Program gamma lut, programm workingmodeEx, colormode, colormatrix功能属性。
+放开bmFlashEnable判断，功能列表需重新整理。
+
+
+2018.3.30
+v6.0.121.9
+修改ffc文件保存加载错误。改变了ffc计算方式，只要blackfram和flatframe都采集完成后即计算校正。
+调整了MU3I401C的Flip。
+
+
+2018.4.2
+v6.0.121.10
+修复：对于fpga不支持roi的某些设备进行读取会死机。
+
+2018.4.4
+v6.0.121.11
+统一WB，CCM matrix矩阵。
+2018.4.9
+79 muc120c support program color mode and color matrix.
+2018.4.10
+加入
+KSJ_CalibrationProgram,这个函数调用时，会根据当前采集视场的宽度和高度进行写入。
+KSJ_CalibrationReadout
+设备初始后会从rom中自动读取校正参数。
+
+
+2018.4.11
+v6.0.121.12
+CalibrationProgram and autoload for 128 and 1024 eeprom ok!
+修改了KSJ_AEStart回调时机，正在调节中不进行回调操作。
+KSJ_AEStartEx回调机制不变。
+
+
+2018.4.26
+v6.0.121.15
+增加了两个烧写保存参数接口KSJ_ParamProgram，KSJ_ParamErease。当用户调用KSJ_ParamProgram后，会将当前的预览视场，采集视场，曝光，增益，Flip，Mirror，白平衡设置WB，颜色校正设置CCM进行保存（保存至硬件），
+下次启动KSJApi库时会自动加载，如果不想让KSJApi库自动加载，可以调用KSJ_ParamErease进行清除处理。清除之后，KSJApi会根据硬件的实际默认值进行加载。
+增加了I400相机的ROI功能（需升级硬件程序支持）。
+修正sensor_matrix。
+
+2018.5.15
+v6.0.121.16
+替换原有型号UC130C_MRYY,UC130M_MRYY为MUC120C_MRYYO, MUC120M_MRYYO。
+支持AR0130的设备MUC120C/M_MRYYO Alpha版本阶段。
+修改MU3I130C/M最大曝光范围0x0fff至0xFFFFFF。修正MU3I130C的Bayer模式,MU3I130C/M_IGYYO Beta阶段。
+KSJ_ParamProgram函数增加了对畸变校正使能的保存，保存版本有变化，之前的保存不再被支持。需要重新写入。
+KSJ_ParamErease名称改为KSJ_ParamErase
+
+
+2018.5.21
+V6.0.121.17
+增加AR0130的AEC功能。
+增加了AR0135的AEC功能。
+AEC功能统一到KSJ_AEStart函数，如果硬件支持则硬件操作，不支持则软件操作。当硬件支持时，有些软件的设置会不再支持，比如KSJ_AESetMaxCount不可以设置，只能是连续自动。
+自动曝光回调函数每一帧都会调用，并返回硬件当前曝光。
+支持24LC128存储器类型的wb，ccm matrix烧写。
+Program Param增加了自动曝光设置的保存，需用户重新Program，老版本的烧写参数不能自动加载。
+
+2018.5.28
+v6.0.121.18
+兼容之前不支持AEC的固件，如果固件不支持则使用软件自动曝光调节。
+修复了v6.0.121.17的muc120 aec的bug。
