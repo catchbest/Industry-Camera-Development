@@ -71,6 +71,9 @@ extern "C"{
 	// 只是简单的关闭设备，不会销毁已经创建的设备对象。
 	KSJ_API  int __stdcall KSJ_Close(int nChannel);
 
+	KSJ_API  int __stdcall KSJ_ClearFeature(int nChannel);
+	KSJ_API  int __stdcall KSJ_ResetPipe(int nChannel);
+	KSJ_API  int __stdcall KSJ_UsbHostResetDevice(int nChannel);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

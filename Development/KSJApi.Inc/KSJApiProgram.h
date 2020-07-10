@@ -61,6 +61,8 @@ extern "C"{
 	KSJ_API  int __stdcall KSJ_LoadParamFromCamera(int nIndex);   // 将目前保存至相机的主要参数加载并设置
 	KSJ_API  int __stdcall KSJ_ParamErase(int nIndex);            // 清除目前保存至相机的主要参数（预览视场、采集视场、曝光、增益）
 
+	KSJ_API  int __stdcall KSJ_SaveParamToFile(int nIndex, TCHAR *pszFile);
+	KSJ_API  int __stdcall KSJ_LoadParamFromFile(int nIndex, TCHAR *pszFile);
 
 #ifdef __cplusplus
 }

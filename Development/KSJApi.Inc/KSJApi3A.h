@@ -185,31 +185,31 @@ extern "C"{
 	KSJ_API  int __stdcall KSJ_AEGetStatusEx(int nChannel, bool *pbStart, int *pnMaxCount, int *pnTarget);
 
 	//-----------------------------------------------------------------------------
-    // 函数：KSJ_AECALLBACK
+    // 函数：KSJ_AECALLBACK (不再推荐使用)
     // 功能：定义自动曝光操作结束后的回调函数
     // 参数：
 	//       bSuccess： 输出，传回自动曝光操作是否调节到用户设定的目标值（参考KSJ_AEStart函数），TRUE，表示自动曝光调节到达了目标值，FALSE，表示自动曝光超过用户设定的调节次数，没有达到目标值
     //       nResult：输出，在自动曝光调节结束后，曝光值是多少（MS）
 	//       lpContext：输出，用户上下文指针，这个指针是用户调用KSJ_AESetCallback时传入的上下文指针
     // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
+    // 说明：调用KSJ_Init函数初始化后调用 不再推荐使用，请使用KSJ_AECALLBACKEX代替
 	//-----------------------------------------------------------------------------
 	typedef void(__stdcall *KSJ_AECALLBACK)(bool bSuccess, int nResult, void *lpContext);
 	
 	//-----------------------------------------------------------------------------
-    // 函数：KSJ_AESetCallback
+    // 函数：KSJ_AESetCallback (不再推荐使用)
     // 功能：定义通过KSJ_AEStartEx启动的自动曝光操作的回调函数，当自动曝光进行每一次调节时，KSJ开发包会自动调用pfAECallbackEx用户指定的回调函数
     // 参数：
 	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
     //       pfAECallback：输入，用户定义的自动曝光回调函数指针（参考KSJ_AECALLBACK函数的定义）
 	//       lpContext：输入，回调函数的上下文指针
     // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
+    // 说明：调用KSJ_Init函数初始化后调用, 不再推荐使用，请使用KSJ_AESetCallbackEx代替
 	//-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AESetCallback(int nChannel, KSJ_AECALLBACK pfAECallback, void *lpContext);
 	
 	//-----------------------------------------------------------------------------
-    // 函数：KSJ_AEStart
+    // 函数：KSJ_AEStart (不再推荐使用)
     // 功能：启动或结束自动曝光操作
     // 参数：
 	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
@@ -217,7 +217,7 @@ extern "C"{
 	//       nMaxCount：输入，TRUE 开始自动曝光调节，FALSE 终止或结束自动曝光调节
 	//       nTarget：输入，调节到的目标亮度值（0-255）
     // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
+    // 说明：调用KSJ_Init函数初始化后调用, 不再推荐使用，请使用KSJ_AEStartEx代替
 	//-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AEStart(int nChannel, bool bStart, int nMaxCount, int nTarget);
 
@@ -263,7 +263,7 @@ extern "C"{
 	KSJ_API  int __stdcall KSJ_AWBGetRegion(int nChannel, int *pnX, int *pnY, int *pnW, int *pnH, bool *pbShow);
 
 	//-----------------------------------------------------------------------------
-    // 函数：KSJ_AWBCALLBACK
+    // 函数：KSJ_AWBCALLBACK (不再推荐使用)
     // 功能：定义自动曝光操作结束后的回调函数
     // 参数：
 	//       bSuccess： 输出，传回自动白平衡操作是否调节到用户设定的目标值（参考KSJ_AEStart函数），TRUE，表示自动白平衡调节到达了目标值，FALSE，表示自动白平衡超过用户设定的调节次数，没有达到目标值
@@ -272,24 +272,24 @@ extern "C"{
 	//       nValueB：输出，在自动白平衡调节结束后，蓝增益的设置值
 	//       lpContext：输出，用户上下文指针，这个指针是用户调用KSJ_AWBSetCallback时传入的上下文指针
     // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
+    // 说明：调用KSJ_Init函数初始化后调用，不再推荐使用, 请用KSJApiMatrix.h内函数
 	//-----------------------------------------------------------------------------
 	typedef void(__stdcall *KSJ_AWBCALLBACK)(bool bSuccess, int nValueR, int nValueG, int nValueB, void *lpContext);
 	
 	//-----------------------------------------------------------------------------
-    // 函数：KSJ_AWBSetCallback
+    // 函数：KSJ_AWBSetCallback (不再推荐使用)
     // 功能：定义自动白平衡操作结束后的回调函数，当自动曝光结束时，KSJ开发包会自动调用pfAWBCallback用户指定的回调函数
     // 参数：
 	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
     //       fpAWBCallback：输入，用户定义的自动白平衡回调函数指针（参考KSJ_AWBCALLBACK函数的定义）
 	//       lpContext：输入，回调函数的上下文指针
     // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
+    // 说明：调用KSJ_Init函数初始化后调用，不再推荐使用, 请用KSJApiMatrix.h内函数
 	//-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWBSetCallback(int nChannel, KSJ_AWBCALLBACK fpAWBCallback, void *lpContext);
 	
 	//-----------------------------------------------------------------------------
-    // 函数：KSJ_AWBStart
+    // 函数：KSJ_AWBStart (不再推荐使用)
     // 功能：启动或结束自动曝光操作
     // 参数：
 	//       bSuccess： 输出，传回自动白平衡操作是否调节到用户设定的目标值（参考KSJ_AEStart函数），TRUE，表示自动白平衡调节到达了目标值，FALSE，表示自动白平衡超过用户设定的调节次数，没有达到目标值
@@ -299,7 +299,7 @@ extern "C"{
 	//       nGTarget：输出，调节到的目标绿分量值（0-255）
 	//       nBTarget：输出，调节到的目标蓝分量值（0-255）
     // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
+    // 说明：调用KSJ_Init函数初始化后调用，不再推荐使用, 请用KSJApiMatrix.h内函数
 	//-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWBStart(int nChannel, bool bStart, int nMaxCount, int nRTarget, int nGTarget, int nBTarget);
 
