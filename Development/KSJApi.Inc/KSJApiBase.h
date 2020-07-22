@@ -261,6 +261,19 @@ extern "C"{
 	//-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_DeviceGetInformationEx(IN int nIndex, OUT KSJ_DEVICETYPE *pDeviceType, OUT int *pnSerials, OUT unsigned short *pwFirmwareVersion, OUT unsigned short *pwFpgaVersion);
 	
+	enum KSJ_IMAGE_FORMAT
+	{
+		KSJ_IF_RAW8 = 0,
+		KSJ_IF_GRAY8,
+		KSJ_IF_RGB24,
+		KSJ_IF_RGB32,
+		KSJ_IF_BGR24,
+		KSJ_IF_BGR32,
+	};
+
+	KSJ_API  int __stdcall KSJ_SetImageFormat(IN int nChannel, IN KSJ_IMAGE_FORMAT ImageFormat);
+	KSJ_API  int __stdcall KSJ_GetImageFormat(IN int nChannel, OUT KSJ_IMAGE_FORMAT *pImageFormat);
+
 	enum KSJ_PARAM//相机参数的枚举类型
 	{
 		KSJ_EXPOSURE = 0,        // Exposure Time (ms)
