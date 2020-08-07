@@ -269,6 +269,12 @@ extern "C"{
 		KSJ_IF_RGB32,
 		KSJ_IF_BGR24,
 		KSJ_IF_BGR32,
+		KSJ_IF_RAW16,
+		KSJ_IF_GRAY16,
+		KSJ_IF_RGB48,
+		KSJ_IF_RGB64,
+		KSJ_IF_BGR48,
+		KSJ_IF_BGR64,
 	};
 
 	KSJ_API  int __stdcall KSJ_SetImageFormat(IN int nChannel, IN KSJ_IMAGE_FORMAT ImageFormat);

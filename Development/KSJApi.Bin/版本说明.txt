@@ -1,3 +1,10 @@
+2020.08.06
+v6.0.122.69
+修正相机MU3S231M/C寄存器HMAX的设置
+修正Preview和Capture的Fov不一致的时候，预览出现问题
+修正MUC36M相机的Capability错误
+增减Imageformat设置功能。
+
 2020.07.22
 v6.0.122.68
 修改HS500M等相机的FOV设置限制，水平方向必须8的整数倍.

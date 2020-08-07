@@ -56,7 +56,7 @@ extern "C"{
     //       pnWidth： 输出，返回当前视场模式设置下的实际采集图像的像素宽度
     //       pnHeight：输出，返回当前视场模式设置下的实际采集图像的像素高度
     //       pnBitCount：输出，返回当前视场模式设置下的实际采集图像的位图深度
-	//       nBitsPerSample：输出，nSamplesPerPixel = 1或3或4(分别对应BitCount=8,24,32)
+	//       nBitsPerSample：输出，采样位数，nBitPerSample = 8 或16，分别为8bit和16bit采样
     // 返回：参考返回状态码（KSJCode.H）
     // 说明：调用KSJ_Init函数初始化后调用
 	//-----------------------------------------------------------------------------
@@ -70,7 +70,7 @@ extern "C"{
 	//       nWidth： 输入，图像的宽度（像素）
     //       nHeight：输入，图像的高度（像素）
     //       nBitPerSample：输入，采样位数，nBitPerSample = 8 或16，分别为8bit和16bit采样
-	//       nSamplesPerPixel：输入，采样位数，nBitPerSample = 8 或16，分别为8bit和16bit采样
+	//       nSamplesPerPixel：输入，表示每个像素有几个采样点，nSamplesPerPixel = 1或3或4(分别对应BitCount=8,24,32)
     //       pszFileName：输入，保存文件的全路径名（路径必须存在）
     // 返回：参考返回状态码（KSJCode.H）
     // 说明：可以在任意时刻调用
