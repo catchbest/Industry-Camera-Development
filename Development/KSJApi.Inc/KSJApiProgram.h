@@ -15,8 +15,8 @@
 #ifdef __cplusplus
 extern "C"{
 #endif
-	// 参考“凯视佳工业相机内部API函数说明书（初始化厂商读写区域篇）”
-	// Program and Modify Serials
+	/// 参考“凯视佳工业相机内部API函数说明书（初始化厂商读写区域篇）”
+	/// Program and Modify Serials
 	KSJ_API  int __stdcall KSJ_SetSerials(int nIndex, unsigned char btSerials);
 	KSJ_API  int __stdcall KSJ_GetSerials(int nIndex, unsigned char *pbtSerials);
 
@@ -57,9 +57,9 @@ extern "C"{
 	KSJ_API  int __stdcall KSJ_CalibrationProgram(int nIndex, float fCoefficient[14]);
 	KSJ_API  int __stdcall KSJ_CalibrationReadout(int nIndex, float fCoefficient[14]);
 
-	KSJ_API  int __stdcall KSJ_ParamProgram(int nIndex);          // 将目前的主要参数保存至相机，再次重启KSJApi库时会自动加载并设置
-	KSJ_API  int __stdcall KSJ_LoadParamFromCamera(int nIndex);   // 将目前保存至相机的主要参数加载并设置
-	KSJ_API  int __stdcall KSJ_ParamErase(int nIndex);            // 清除目前保存至相机的主要参数（预览视场、采集视场、曝光、增益）
+	KSJ_API  int __stdcall KSJ_ParamProgram(int nIndex);          /// 将目前的主要参数保存至相机，再次重启KSJApi库时会自动加载并设置
+	KSJ_API  int __stdcall KSJ_LoadParamFromCamera(int nIndex);   /// 将目前保存至相机的主要参数加载并设置
+	KSJ_API  int __stdcall KSJ_ParamErase(int nIndex);            /// 清除目前保存至相机的主要参数（预览视场、采集视场、曝光、增益）
 
 	KSJ_API  int __stdcall KSJ_SaveParamToFile(int nIndex, TCHAR *pszFile);
 	KSJ_API  int __stdcall KSJ_LoadParamFromFile(int nIndex, TCHAR *pszFile);

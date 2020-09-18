@@ -29,149 +29,149 @@ extern "C"{
 		KSJ_HWB_MANUAL
 	};
 
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WhiteBalanceSet
-    // 功能：设置白平衡模式
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       WbMode：输入，设置的白平衡模式
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_WhiteBalanceSet(int nChannel, KSJ_WB_MODE WbMode);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     设置白平衡模式
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     WbMode [in] 设置的白平衡模式
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_WhiteBalanceSet(int nIndex, KSJ_WB_MODE WbMode);
 	
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WhiteBalanceGet
-    // 功能：获取当前的白平衡模式
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       pWbMode：输出，返回相机白平衡模式
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_WhiteBalanceGet(int nChannel, KSJ_WB_MODE *pWbMode);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     获取当前的白平衡模式
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     pWbMode [out] 返回相机白平衡模式
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_WhiteBalanceGet(int nIndex, KSJ_WB_MODE *pWbMode);
 
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WhiteBalanceAutoSet
-    // 功能：设置软件自动白平衡的参考像素，是一个阈值
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       nPhi：输入，默认值为0，用户无需改动
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_WhiteBalanceAutoSet(int nChannel, int nPhi);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     设置软件自动白平衡的参考像素，是一个阈值
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     nPhi [in] 默认值为0，用户无需改动
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_WhiteBalanceAutoSet(int nIndex, int nPhi);
 	
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WhiteBalanceAutoGet
-    // 功能：获取自动白平衡的阈值
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       pnPhi：输出，返回当前的阈值参数
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_WhiteBalanceAutoGet(int nChannel, int *pnPhi);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     获取自动白平衡的阈值
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     pnPhi [out] 返回当前的阈值参数
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_WhiteBalanceAutoGet(int nIndex, int *pnPhi);
 
 
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WhiteBalanceMatrixSet
-    // 功能：手动设置白平衡校正矩阵
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       fMatrix：输入，用于设置白平衡校正矩阵，校正矩阵为1x3的数组，其中中R、G、B三个分量的系数分别为fMatrix [0] 、fMatrix [1] 、fMatrix [2] 
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_WhiteBalanceMatrixSet(int nChannel, float fMatrix[3]);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     手动设置白平衡校正矩阵
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     fMatrix [in] 用于设置白平衡校正矩阵，校正矩阵为1x3的数组，其中中R、G、B三个分量的系数分别为fMatrix [0] 、fMatrix [1] 、fMatrix [2] 
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_WhiteBalanceMatrixSet(int nIndex, float fMatrix[3]);
 	
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WhiteBalanceMatrixGet
-    // 功能：获取当前的白平衡校正矩阵
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       fMatrix：输出，返回获取的白平衡调整系数，数组中R、G、B三个分量的系数分别为fMatrix [0] 、fMatrix [1] 、fMatrix [2] 
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_WhiteBalanceMatrixGet(int nChannel, float fMatrix[3]);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     获取当前的白平衡校正矩阵
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     fMatrix [out] 返回获取的白平衡调整系数，数组中R、G、B三个分量的系数分别为fMatrix [0] 、fMatrix [1] 、fMatrix [2] 
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_WhiteBalanceMatrixGet(int nIndex, float fMatrix[3]);
 
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WB_CALLBACK
-    // 功能：白平衡回调函数类型定义
-    // 参数：
-    //       fMatrix：输出，回传给用户的白平衡校正矩阵
-	//       lpContext： 输出，用户调用KSJ_WhiteBalanceAutoSetCallBack时传入的上下文指针
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     白平衡回调函数类型定义
+    /// @param     fMatrix [out] 回传给用户的白平衡校正矩阵
+	/// @param     lpContext [out] 用户调用KSJ_WhiteBalanceAutoSetCallBack时传入的上下文指针
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
 	typedef void(__stdcall *KSJ_WB_CALLBACK)(float fMatrix[3], void *lpContext);
 	
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WhiteBalanceAutoSetCallBack
-    // 功能：白平衡回调函数类型定义
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       pfCallBack：输入，自动白平衡回调函数指针
-	//       lpContext： 输入，上下文指针
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_WhiteBalanceAutoSetCallBack(int nChannel, KSJ_WB_CALLBACK    pfCallBack, void *lpContext);      // The nPhi decide auto calculate Matrix.
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     白平衡回调函数类型定义
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     pfCallBack [in] 自动白平衡回调函数指针
+	/// @param     lpContext [in] 上下文指针
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_WhiteBalanceAutoSetCallBack(int nIndex, KSJ_WB_CALLBACK    pfCallBack, void *lpContext);      /// The nPhi decide auto calculate Matrix.
 
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WB_CALLBACK_EX
-    // 功能：白平衡回调函数类型定义
-    // 参数：
-    //       fMatrixR：输出，回传给用户的白平衡红色校正值
-	//       fMatrixG：输出，回传给用户的白平衡绿色校正值
-	//       fMatrixB：输出，回传给用户的白平衡蓝色校正值
-	//       lpContext： 输出，用户调用KSJ_WhiteBalanceAutoSetCallBack时传入的上下文指针
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     白平衡回调函数类型定义
+    /// @param     fMatrixR [out] 回传给用户的白平衡红色校正值
+	/// @param     fMatrixG [out] 回传给用户的白平衡绿色校正值
+	/// @param     fMatrixB [out] 回传给用户的白平衡蓝色校正值
+	/// @param     lpContext [out] 用户调用KSJ_WhiteBalanceAutoSetCallBack时传入的上下文指针
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
 	typedef void(__stdcall *KSJ_WB_CALLBACK_EX)(float fMatrixR, float fMatrixG, float fMatrixB, void *lpContext);
 	
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WhiteBalanceAutoSetCallBackEx
-    // 功能：设置白平衡回调函数
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       pfCallBackEx：输入，自动白平衡回调函数指针
-	//       lpContext： 输入，上下文指针
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_WhiteBalanceAutoSetCallBackEx(int nChannel, KSJ_WB_CALLBACK_EX pfCallBackEx, void *lpContext);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     设置白平衡回调函数
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     pfCallBackEx [in] 自动白平衡回调函数指针
+	/// @param     lpContext [in] 上下文指针
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_WhiteBalanceAutoSetCallBackEx(int nIndex, KSJ_WB_CALLBACK_EX pfCallBackEx, void *lpContext);
 
-	enum KSJ_COLOR_TEMPRATURE //预设白平衡
+	enum KSJ_COLOR_TEMPRATURE ///预设白平衡
 	{ 
 		KSJ_CT_5000K, 
 		KSJ_CT_6500K, 
 		KSJ_CT_2800K 
 	};
 	
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WhiteBalancePresettingSet
-    // 功能：选择预设组值
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       WbPresetting：输入，预设色温白平衡，凯视佳工业相机预设三种色温下的白平衡
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_WhiteBalancePresettingSet(int nChannel, KSJ_COLOR_TEMPRATURE WbPresetting);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     选择预设组值
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     WbPresetting [in] 预设色温白平衡，凯视佳工业相机预设三种色温下的白平衡
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_WhiteBalancePresettingSet(int nIndex, KSJ_COLOR_TEMPRATURE WbPresetting);
 	
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_WhiteBalancePresettingGet
-    // 功能：获取并返回相机当前使用的预设色温白平衡
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       pWbPresetting：输出，获取并返回相机当前使用的预设色温白平衡
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_WhiteBalancePresettingGet(int nChannel, KSJ_COLOR_TEMPRATURE *pWbPresetting);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     获取并返回相机当前使用的预设色温白平衡
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     pWbPresetting [out] 获取并返回相机当前使用的预设色温白平衡
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_WhiteBalancePresettingGet(int nIndex, KSJ_COLOR_TEMPRATURE *pWbPresetting);
 
 	enum KSJ_CCM_MODE//颜色校正模式枚举类型
 	{
@@ -182,71 +182,71 @@ extern "C"{
 		KSJ_HCCM_MANUAL
 	};
 
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_ColorCorrectionSet
-    // 功能：设置颜色校正模式
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       CcmMode：输入，颜色校正模式
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_ColorCorrectionSet(int nChannel, KSJ_CCM_MODE CcmMode);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     设置颜色校正模式
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     CcmMode [in] 颜色校正模式
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_ColorCorrectionSet(int nIndex, KSJ_CCM_MODE CcmMode);
 	
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_ColorCorrectionGet
-    // 功能：获取颜色校正模式
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       pCcmMode：输出，颜色校正模式
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_ColorCorrectionGet(int nChannel, KSJ_CCM_MODE *pCcmMode);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     获取颜色校正模式
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     pCcmMode [out] 颜色校正模式
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_ColorCorrectionGet(int nIndex, KSJ_CCM_MODE *pCcmMode);
 
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_ColorCorrectionMatrixSet
-    // 功能：手动设置颜色校正矩阵
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       fMatrix：输入，颜色校正系数矩阵，为3x3 float型的矩阵
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------	
-	KSJ_API  int __stdcall KSJ_ColorCorrectionMatrixSet(int nChannel, float fMatrix[3][3]);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     手动设置颜色校正矩阵
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     fMatrix [in] 颜色校正系数矩阵，为3x3 float型的矩阵
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------	
+	KSJ_API  int __stdcall KSJ_ColorCorrectionMatrixSet(int nIndex, float fMatrix[3][3]);
 	
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_ColorCorrectionMatrixGet
-    // 功能：获取当前的颜色校正矩阵
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       fMatrix：输入，颜色校正系数矩阵，为3x3 float型的矩阵
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------	
-	KSJ_API  int __stdcall KSJ_ColorCorrectionMatrixGet(int nChannel, float fMatrix[3][3]);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     获取当前的颜色校正矩阵
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     fMatrix [in] 颜色校正系数矩阵，为3x3 float型的矩阵
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------	
+	KSJ_API  int __stdcall KSJ_ColorCorrectionMatrixGet(int nIndex, float fMatrix[3][3]);
 
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_ColorCorrectionPresettingSet
-    // 功能：设置颜色校正的预设组值
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       CcmPresetting：输入，预设色温颜色校正，凯视佳工业相机预设三种色温下的颜色校正矩阵
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------	
-	KSJ_API  int __stdcall KSJ_ColorCorrectionPresettingSet(int nChannel, KSJ_COLOR_TEMPRATURE CcmPresetting);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     设置颜色校正的预设组值
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     CcmPresetting [in] 预设色温颜色校正，凯视佳工业相机预设三种色温下的颜色校正矩阵
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------	
+	KSJ_API  int __stdcall KSJ_ColorCorrectionPresettingSet(int nIndex, KSJ_COLOR_TEMPRATURE CcmPresetting);
 	
-	//-----------------------------------------------------------------------------
-    // 函数：KSJ_ColorCorrectionPresettingGet
-    // 功能：获取当前选择的颜色校正预设组值
-    // 参数：
-	//       nChannel： 输入，设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-    //       pCcmPresetting：输出，获取并返回相机当前使用的预设色温颜色校正
-    // 返回：参考返回状态码（KSJCode.H）
-    // 说明：调用KSJ_Init函数初始化后调用
-	//-----------------------------------------------------------------------------	
-	KSJ_API  int __stdcall KSJ_ColorCorrectionPresettingGet(int nChannel, KSJ_COLOR_TEMPRATURE *pCcmPresetting);
+	///-----------------------------------------------------------------------------
+    ///
+    /// @brief     获取当前选择的颜色校正预设组值
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+    /// @param     pCcmPresetting [out] 获取并返回相机当前使用的预设色温颜色校正
+    /// @return    参考返回状态码（KSJCode.H）
+    /// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------	
+	KSJ_API  int __stdcall KSJ_ColorCorrectionPresettingGet(int nIndex, KSJ_COLOR_TEMPRATURE *pCcmPresetting);
 
 
 

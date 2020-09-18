@@ -6,7 +6,7 @@
 //=================================================================
 // Please Add Follow in your program before use KSJApi.dll
 // #include "..\KSJApi.Inc\KSJAPI.H"
-// #pragma comment( lib, "..\\KSJApi.Lib\\KSJApi.lib" )
+// #pragma comment( lib, "..\\KSJApi.Lib\\x86\\KSJApi.lib" )
 //=================================================================
 #include "KSJCode.H"
 #include "KSJApiFunction.H"
