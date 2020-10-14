@@ -25,7 +25,7 @@ extern "C"{
     /// @brief     获取相机所使用的存储器芯片类型
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
     /// @param     pType [out] 返回相机所使用的EEPROM型号
-    /// @return    参考返回状态码（KSJCode.H）
+    /// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
     /// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -37,7 +37,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
     /// @param     uRomAdress [in] 要写入的设备ROM地址
 	/// @param     btValue [in] 要写入ROM地址的数据
-    /// @return    参考返回状态码（KSJCode.H）
+    /// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
     /// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -49,7 +49,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
     /// @param     uRomAdress [out] 要读取的设备ROM地址
 	/// @param     pbtValue [out] 返回给调用者uRomAdress地址的数据
-    /// @return    参考返回状态码（KSJCode.H）
+    /// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
     /// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -61,7 +61,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
     /// @param     ulRomAdress [in] 要写入的设备ROM地址
 	/// @param     btValue [in] 要写入ROM地址的数据
-    /// @return    参考返回状态码（KSJCode.H）
+    /// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
     /// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -73,7 +73,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
     /// @param     ulRomAdress [out] 要读取的设备ROM地址
 	/// @param     pbtValue [out] 返回给调用者uRomAdress地址的数据
-    /// @return    参考返回状态码（KSJCode.H）
+    /// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
     /// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -86,7 +86,7 @@ extern "C"{
     /// @param     ulRomAdress [in] 要写入的设备ROM地址
 	/// @param     pData [in] 要写入ROM地址的数据
 	/// @param     nBytes [in] 要写入数据的字节数
-    /// @return    参考返回状态码（KSJCode.H）
+    /// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
     /// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -99,7 +99,7 @@ extern "C"{
     /// @param     ulRomAdress [in] 要读取的设备ROM地址
 	/// @param     nBytes [in] 要读数据的字节数
 	/// @param     pData [out] 返回给调用者ulRomAdress地址开始的nBytes字节数据
-    /// @return    参考返回状态码（KSJCode.H）
+    /// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
     /// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------

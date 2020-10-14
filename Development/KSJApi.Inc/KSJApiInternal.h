@@ -63,7 +63,6 @@ extern "C"{
 	KSJ_API  int __stdcall KSJ_ResetDevice( int nIndex );
     KSJ_API  int __stdcall KSJ_ReconnectDevice( int nIndex );
     KSJ_API  int __stdcall KSJ_ResetHost( int nIndex );
-    KSJ_API  int __stdcall KSJ_SendPktEnd( int nIndex );
 	KSJ_API  int __stdcall KSJ_CancelIo(int nIndex);
 
 	/// 只是简单的打开设备，此设备必须已经创建。

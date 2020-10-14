@@ -1,4 +1,4 @@
-#ifndef __KSJ_API_AWAIBA_H__
+ï»¿#ifndef __KSJ_API_AWAIBA_H__
 #define __KSJ_API_AWAIBA_H__
 
 // #pragma message("Include KSJApiAwaiba.h") 
@@ -14,148 +14,154 @@
 #ifdef __cplusplus
 extern "C"{
 #endif
+
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     µ±Ç°Ïà»úÊÇ·ñÊÇAWAIBA´«¸ĞÆ÷Ïà»ú
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-    /// @param     bUsed [out] µ±Ç°Ïà»úÊÇ·ñÊÇAWAIBA´«¸ĞÆ÷Ïà»ú
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_IsUsed
+	/// @brief     å½“å‰ç›¸æœºæ˜¯å¦æ˜¯AWAIBAä¼ æ„Ÿå™¨ç›¸æœº
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     bUsed [out] å½“å‰ç›¸æœºæ˜¯å¦æ˜¯AWAIBAä¼ æ„Ÿå™¨ç›¸æœº
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_IsUsed( int nIndex, bool *bUsed );
 	
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     È¡µÃÏà»úµÄÇø¶ÎÊıÄ¿
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-    /// @param     pnSegNum [out] ·µ»Øµ±Ç°Ïà»úµÄÇø¶ÎÊıÄ¿
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_GetSegmentNum
+	/// @brief     å–å¾—ç›¸æœºçš„åŒºæ®µæ•°ç›®
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     pnSegNum [out] è¿”å›å½“å‰ç›¸æœºçš„åŒºæ®µæ•°ç›®
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
+	///           \li è¯¥åŠŸèƒ½ä»…å¯¹çº¿é˜µç›¸æœºæœ‰æ•ˆï¼Œè·å¾—çº¿é˜µç›¸æœºæŒ‡å®šåŒºæ®µæ•°
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_GetSegmentNum(int nIndex, int *pnSegNum );
 
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     »ñÈ¡Ïà»úÖ¸¶¨Çø¶ÎµÄÔöÒæ·¶Î§
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-    /// @param     nSegIndex [in] Çø¶ÎË÷Òı£¨·¶Î§ÓÉKSJ_AWAIBA_GetSegmentNumµÃµ½£©
-	/// @param     pnMin [out] ·µ»Ø×îĞ¡ÔöÒæ
-	/// @param     pnMax [out] ·µ»Ø×î´óÔöÒæ
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_GetGainRange
+	/// @brief     è·å–ç›¸æœºæŒ‡å®šåŒºæ®µçš„å¢ç›ŠèŒƒå›´
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     nSegIndex [in] åŒºæ®µç´¢å¼•ï¼ˆèŒƒå›´ç”±KSJ_AWAIBA_GetSegmentNumå¾—åˆ°ï¼‰
+	/// @param     pnMin [out] è¿”å›æœ€å°å¢ç›Š
+	/// @param     pnMax [out] è¿”å›æœ€å¤§å¢ç›Š
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
+	///           \li è¯¥åŠŸèƒ½ä»…å¯¹çº¿é˜µç›¸æœºæœ‰æ•ˆï¼Œè·å¾—çº¿é˜µç›¸æœºæŒ‡å®šåŒºæ®µçš„å¢ç›ŠèŒƒå›´
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_GetGainRange(int nIndex, int nSegIndex, int *pnMin, int *pnMax);
 	
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     »ñÈ¡Ïà»úÄ³¸öÇø¶ÎµÄÔöÒæ
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-    /// @param     nSegIndex [in] Çø¶ÎË÷Òı£¨·¶Î§ÓÉKSJ_AWAIBA_GetSegmentNumµÃµ½£©
-	/// @param     nGain [in] ÉèÖÃÔöÒæÖµ
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_SetGain
+	/// @brief     è·å–ç›¸æœºæŸä¸ªåŒºæ®µçš„å¢ç›Š
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     nSegIndex [in] åŒºæ®µç´¢å¼•ï¼ˆèŒƒå›´ç”±KSJ_AWAIBA_GetSegmentNumå¾—åˆ°ï¼‰
+	/// @param     nGain [in] è®¾ç½®å¢ç›Šå€¼
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
+	///           \li è¯¥åŠŸèƒ½ä»…å¯¹çº¿é˜µç›¸æœºæœ‰æ•ˆï¼Œè®¾ç½®çº¿é˜µç›¸æœºæŒ‡å®šåŒºæ®µçš„å¢ç›Š
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_SetGain(int nIndex, int nSegIndex, int nGain);
 	
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     »ñÈ¡Ïà»úÄ³¸öÇø¶ÎµÄÔöÒæ
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-    /// @param     nSegIndex [in] Çø¶ÎË÷Òı£¨·¶Î§ÓÉKSJ_AWAIBA_GetSegmentNumµÃµ½£©
-	/// @param     pnGain [out] ·µ»Øµ±Ç°µÄÔöÒæÖµ
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_GetGain
+	/// @brief     è·å–ç›¸æœºæŸä¸ªåŒºæ®µçš„å¢ç›Š
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     nSegIndex [in] åŒºæ®µç´¢å¼•ï¼ˆèŒƒå›´ç”±KSJ_AWAIBA_GetSegmentNumå¾—åˆ°ï¼‰
+	/// @param     pnGain [out] è¿”å›å½“å‰çš„å¢ç›Šå€¼
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
+	///           \li è¯¥åŠŸèƒ½ä»…å¯¹çº¿é˜µç›¸æœºæœ‰æ•ˆï¼Œè·å¾—çº¿é˜µç›¸æœºæŒ‡å®šåŒºæ®µçš„å¢ç›Š
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_GetGain(int nIndex, int nSegIndex, int *pnGain);
 
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     »ñÈ¡Ïà»úÖ¸¶¨Çø¶ÎµÄºÚµçÆ½·¶Î§
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-    /// @param     nSegIndex [in] Çø¶ÎË÷Òı£¨·¶Î§ÓÉKSJ_AWAIBA_GetSegmentNumµÃµ½£©
-	/// @param     pnMin [out] ·µ»Ø×îĞ¡ºÚµçÆ½Öµ
-	/// @param     pnMax [out] ·µ»Ø×î´óºÚµçÆ½Öµ
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_GetBlackLevelRange
+	/// @brief     è·å–ç›¸æœºæŒ‡å®šåŒºæ®µçš„é»‘ç”µå¹³èŒƒå›´
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     nSegIndex [in] åŒºæ®µç´¢å¼•ï¼ˆèŒƒå›´ç”±KSJ_AWAIBA_GetSegmentNumå¾—åˆ°ï¼‰
+	/// @param     pnMin [out] è¿”å›æœ€å°é»‘ç”µå¹³å€¼
+	/// @param     pnMax [out] è¿”å›æœ€å¤§é»‘ç”µå¹³å€¼
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
+	///           \li è¯¥åŠŸèƒ½ä»…å¯¹çº¿é˜µç›¸æœºæœ‰æ•ˆï¼Œè·å¾—çº¿é˜µç›¸æœºæŒ‡å®šåŒºæ®µé»‘å¹³è¡¡ç”µå¹³èŒƒå›´
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_GetBlackLevelRange(int nIndex, int nSegIndex, int *pnMin, int *pnMax);
 	
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     ÉèÖÃÏà»úÄ³¸öÇø¶ÎµÄºÚµçÆ½Öµ
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-    /// @param     nSegIndex [in] Çø¶ÎË÷Òı£¨·¶Î§ÓÉKSJ_AWAIBA_GetSegmentNumµÃµ½£©
-	/// @param     nBlackLevel [in] ÉèÖÃºÚµçÆ½Öµ
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_SetBlackLevel
+	/// @brief     è®¾ç½®ç›¸æœºæŸä¸ªåŒºæ®µçš„é»‘ç”µå¹³å€¼
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     nSegIndex [in] åŒºæ®µç´¢å¼•ï¼ˆèŒƒå›´ç”±KSJ_AWAIBA_GetSegmentNumå¾—åˆ°ï¼‰
+	/// @param     nBlackLevel [in] è®¾ç½®é»‘ç”µå¹³å€¼
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
+	///           \li è¯¥åŠŸèƒ½ä»…å¯¹çº¿é˜µç›¸æœºæœ‰æ•ˆï¼Œè®¾ç½®çº¿é˜µç›¸æœºæŒ‡å®šåŒºæ®µé»‘å¹³è¡¡ç”µå¹³
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_SetBlackLevel(int nIndex, int nSegIndex, int nBlackLevel);
 	
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     »ñÈ¡Ïà»úÄ³¸öÇø¶ÎµÄºÚµçÆ½Öµ
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-    /// @param     nSegIndex [in] Çø¶ÎË÷Òı£¨·¶Î§ÓÉKSJ_AWAIBA_GetSegmentNumµÃµ½£©
-	/// @param     pnBlackLevel [out] ·µ»Øµ±Ç°µÄºÚµçÆ½Öµ
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_GetBlackLevel
+	/// @brief     è·å–ç›¸æœºæŸä¸ªåŒºæ®µçš„é»‘ç”µå¹³å€¼
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     nSegIndex [in] åŒºæ®µç´¢å¼•ï¼ˆèŒƒå›´ç”±KSJ_AWAIBA_GetSegmentNumå¾—åˆ°ï¼‰
+	/// @param     pnBlackLevel [out] è¿”å›å½“å‰çš„é»‘ç”µå¹³å€¼
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
+	///           \li è¯¥åŠŸèƒ½ä»…å¯¹çº¿é˜µç›¸æœºæœ‰æ•ˆï¼Œè·å¾—å½“å‰çº¿é˜µç›¸æœºæŒ‡å®šåŒºæ®µçš„é»‘å¹³è¡¡ç”µå¹³
 	///
 	///-----------------------------------------------------------------------------
-	KSJ_API  int __stdcall KSJ_AWAIBA_GetBlackLevel (int nIndex, int nSegIndex, int *pnBlackLevel);
+	KSJ_API  int __stdcall KSJ_AWAIBA_GetBlackLevel(int nIndex, int nSegIndex, int *pnBlackLevel);
 	
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     ÉèÖÃÏà»úÄ³¸öÇø¶ÎµÄ×Ô¶¯ºÚµçÆ½ÉèÖÃ
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-    /// @param     nSegIndex [in] Çø¶ÎË÷Òı£¨·¶Î§ÓÉKSJ_AWAIBA_GetSegmentNumµÃµ½£©
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_AutoBlackLevel
+	/// @brief     ç›¸æœºæŸä¸ªåŒºæ®µè¿›è¡Œè‡ªåŠ¨é»‘å¹³è¡¡
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     nSegIndex [in] åŒºæ®µç´¢å¼•ï¼ˆèŒƒå›´ç”±KSJ_AWAIBA_GetSegmentNumå¾—åˆ°ï¼‰
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_AutoBlackLevel(int nIndex, int nSegIndex);
 
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     ÉèÖÃÆæÊıÁĞºÍÅ¼Êı·ÖÀë
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-    /// @param     bSplit [in] ÉèÖÃÆæÊıÁĞºÍÅ¼Êı·ÖÀë
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_SetSplitSegment
+	/// @brief     è®¾ç½®å¥‡æ•°åˆ—å’Œå¶æ•°åˆ†ç¦»
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     bSplit [in] è®¾ç½®å¥‡æ•°åˆ—å’Œå¶æ•°åˆ†ç¦»
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
+	///           \li è¯¥åŠŸèƒ½ç›®å‰ä»…å¯¹4Kç›¸æœºæœ‰æ•ˆï¼Œå¥‡å¶åˆ†ç¦»æ“ä½œè¿‡ç¨‹æ˜¯æŠŠå¥‡æ•°åƒç´ å¾€å‰åŠéƒ¨æ”¾ç½®ï¼Œå¶æ•°åƒç´ å¾€ååŠéƒ¨æ”¾ç½®
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_SetSplitSegment(int nIndex, bool bSplit);
 	
 	///-----------------------------------------------------------------------------
-    ///
-    /// @brief     »ñÈ¡ÆæÊıÁĞºÍÅ¼Êı·ÖÀë
-	/// @param     nIndex [in] Éè±¸Ë÷Òı£¨´Ó0¿ªÊ¼£¬×î´óË÷ÒıÊıÎª:Á¬½Óµ½Ö÷»úµÄÉè±¸ÊıÄ¿¼õÒ»£©
-	/// @param     pbSplit [out] ·µ»Øµ±Ç°ÆæÊıÁĞºÍÅ¼ÊıÊÇ·ñ·ÖÀë
-    /// @return    ²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-    /// @attention µ÷ÓÃKSJ_Initº¯Êı³õÊ¼»¯ºóµ÷ÓÃ
+	///
+	/// @brief     KSJ_AWAIBA_GetSplitSegment
+	/// @brief     è·å–å¥‡æ•°åˆ—å’Œå¶æ•°åˆ†ç¦»
+	/// @param     nIndex [in] è®¾å¤‡ç´¢å¼•ï¼ˆä»0å¼€å§‹ï¼Œæœ€å¤§ç´¢å¼•æ•°ä¸º:è¿æ¥åˆ°ä¸»æœºçš„è®¾å¤‡æ•°ç›®å‡ä¸€ï¼‰
+	/// @param     pbSplit [out] è¿”å›å½“å‰å¥‡æ•°åˆ—å’Œå¶æ•°æ˜¯å¦åˆ†ç¦»
+	/// @return    å‚è€ƒè¿”å›çŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @attention è°ƒç”¨KSJ_Initå‡½æ•°åˆå§‹åŒ–åè°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_GetSplitSegment(int nIndex, bool *pbSplit);
-
-	/// ÈçÏÂº¯ÊıÎ´ÊµÏÖ
-	/*
-	KSJ_API  int __stdcall KSJ_AWAIBA_SetAntiBlooming(int nIndex, bool bEnable);
-	KSJ_API  int __stdcall KSJ_AWAIBA_GetAntiBlooming(int nIndex, bool *bEnable);
-
-	KSJ_API  int __stdcall KSJ_AWAIBA_SetAntiCorona(int nIndex, bool bEnable);
-	KSJ_API  int __stdcall KSJ_AWAIBA_GetAntiCorona(int nIndex, bool *bEnable);
-
-	enum KSJ_AWAIBA_ANALOGUE_GAIN {KSJ_AAG_X1, KSJ_AAG_X4};
-	KSJ_API  int __stdcall KSJ_AWAIBA_SetAnalogueGain(int nIndex, KSJ_AWAIBA_ANALOGUE_GAIN Gain);
-	KSJ_API  int __stdcall KSJ_AWAIBA_GetAnalogueGain(int nIndex, KSJ_AWAIBA_ANALOGUE_GAIN *pGain);
-	*/
-
 
 
 #ifdef __cplusplus

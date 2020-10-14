@@ -23,7 +23,7 @@ extern "C"{
 	/// @param     bStart [in] 是否启动录影，如果为false，后两个参数无意义
 	/// @param     fRecordRate [in] 设置录影帧速，这个帧速代表录影文件的回放帧速
 	/// @param     pFileName [in] 录影文件名
-	/// @return    参考返回状态码（KSJCode.H）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -37,7 +37,7 @@ extern "C"{
 	/// @param     fRecordRate [in] 设置录影帧速，这个帧速代表录影文件的回放帧速
 	/// @param     pFileName [in] 录影文件名
 	/// @param     bShowCompossorSelection [in] 是否弹出视频编码器对话框供用户选择
-	/// @return    参考返回状态码（KSJCode.H）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -54,7 +54,7 @@ extern "C"{
 	/// @param     nBitCount [in] 视频比特深度（8/24/32），这个值需要与KSJ_RecordAddOneFrame函数的nBitCount参数一致
 	/// @param     pFileName [in] 录影文件名
 	/// @param     bShowCompossorSelection [in] 是否弹出视频编码器对话框供用户选择
-	/// @return    参考返回状态码（KSJCode.H）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -69,7 +69,7 @@ extern "C"{
 	/// @param     nWidth [in] 图像宽度（像素），这个值需要与KSJ_ RecordStartExEx函数的nWidth参数一致
 	/// @param     nHeight [in] 视频高度（像素），这个值需要与KSJ_ RecordStartExEx函数的nHeight参数一致
 	/// @param     nBitCount [in] 视频比特深度（8/24/32），这个值需要与KSJ_ RecordStartExEx函数的nBitCount参数一致
-	/// @return    参考返回状态码（KSJCode.H）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -80,7 +80,7 @@ extern "C"{
 	/// @brief     得到当前录影状态
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     bStart [in] 返回是否正在录影
-	/// @return    参考返回状态码（KSJCode.H）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------

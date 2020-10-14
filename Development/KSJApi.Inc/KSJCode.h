@@ -34,6 +34,7 @@
 #define     RET_STOPSTREAMFIRST     -24	   /// 需要先停止流模式
 #define     RET_DATAIO_ERROR        -25	   /// 数据IO错误，通常是因为数据传输有问题
 #define     RET_3DINIT_ERROR        -26	   /// 相机3D功能初始化错误，可能因为相机不支持3D功能或者相机3D参数错误
+#define     RET_INVALID_DEVICE      -27	   /// 无效设备
 
 
 #endif

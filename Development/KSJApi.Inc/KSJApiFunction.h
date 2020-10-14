@@ -83,7 +83,18 @@ enum KSJ_FUNCTION
 
 };
 
-KSJ_API  int __stdcall KSJ_QueryFunction( int nIndex, KSJ_FUNCTION Function, int *pInfo ); 
+///-----------------------------------------------------------------------------
+///
+/// @brief     KSJ_QueryFunction
+/// @brief     取得相机的功能信息
+/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+/// @param     Function [in] 需要查询的相机功能枚举，请参考KSJ_FUNCTION的定义
+/// @param     pInfo [out] 返回当前相机的功能信息（0表示不支持该功能，非0表示支持该功能）
+/// @return    参考返回状态码（KSJCode.H）
+/// @attention 调用KSJ_Init函数初始化后调用
+///
+///-----------------------------------------------------------------------------
+KSJ_API  int __stdcall KSJ_QueryFunction(int nIndex, KSJ_FUNCTION Function, int *pInfo); 
 
 #ifdef __cplusplus
 }
