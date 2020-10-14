@@ -1,0 +1,7 @@
+1. https://www.python.org/downloads/release/python-371/，安装64bit版本的python（如果是32bit系统，安装32bit版本，代码里面把KSJApi64.dll改为KSJApi.dll）
+
+2. get-pip.py拷贝到python目录(默认路径C:\Users\XXXX\AppData\Local\Programs\Python\Python37) 双击运行get-pip.py
+3. 打开命令窗口，并进入Python目录(默认路径C:\Users\XXXX\AppData\Local\Programs\Python\Python37)
+4. python -m pip install pip
+5. python -m pip install numpy
+6. python -m pip install opencv-python
