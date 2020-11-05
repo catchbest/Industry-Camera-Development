@@ -35,6 +35,9 @@ extern "C"{
 	KSJ_API  int __stdcall KSJ_SetImageFormat(IN int nIndex, IN KSJ_IMAGE_FORMAT ImageFormat);
 	KSJ_API  int __stdcall KSJ_GetImageFormat(IN int nIndex, OUT KSJ_IMAGE_FORMAT *pImageFormat);
 
+	KSJ_API  int __stdcall KSJ_SetNegativeImageMode(IN int nIndex, IN bool bNegative);
+	KSJ_API  int __stdcall KSJ_GetNegativeImageMode(IN int nIndex, OUT bool* pbNegative);
+
 	////////////////////////////////////////////Capture/////////////////////////////////
 	///-----------------------------------------------------------------------------
 	///

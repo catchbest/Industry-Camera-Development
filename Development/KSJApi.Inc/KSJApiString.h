@@ -32,8 +32,8 @@ extern "C"{
 	/// 语言类型枚举 
 	enum KSJ_LANGUAGE
 	{
-		L_ENG,     ///< 英文
 		L_CHS,     ///< 中文
+		L_ENG,     ///< 英文
 	};
 
 	///-----------------------------------------------------------------------------
@@ -142,7 +142,7 @@ extern "C"{
 	/// @attention 可以在任意时刻调用
 	///
 	///-----------------------------------------------------------------------------
-	KSJ_API PTCHAR __stdcall KSJ_GetTriggerMethod(KSJ_TRIGGERMETHOD TriggerMethod);
+	KSJ_API PTCHAR __stdcall KSJ_GetTriggerMethodString(KSJ_TRIGGERMETHOD TriggerMethod);
 
 	///-----------------------------------------------------------------------------
 	///
@@ -354,6 +354,37 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetFlashModeString(KSJ_FLASHMODE FlashMode);
 
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_GetGainSelectorString
+	/// @brief     获得增益类型字符串
+	/// @param     GainSelector [in] 传入增益类型
+	/// @return    字符串信息地址指针
+	/// @attention 可以在任意时刻调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API PTCHAR __stdcall KSJ_GetGainSelectorString(int GainSelector);
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_GetExposureModeString
+	/// @brief     获得曝光类型字符串
+	/// @param     ExposureMode [in] 传入曝光类型
+	/// @return    字符串信息地址指针
+	/// @attention 可以在任意时刻调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API PTCHAR __stdcall KSJ_GetExposureModeString(int ExposureMode);
+
+	/// -----------------------------------------------------------------------------
+	///
+	/// @brief     这是一个辅助函数，方便用户获取MVD_USER_PRESETTING枚举值对应的字符串，这个用户也可以不调用，自行设置对应的字符串信息。
+	/// @attention 无。
+	/// @param     [IN]UserPresetting 参考MVD_USER_PRESETTING枚举类型
+	/// @return    返回对应的字符串指针。
+	///
+	/// -----------------------------------------------------------------------------
+	KSJ_API PTCHAR __stdcall GetUserPresettingString(IN int UserPresetting);
 
 #ifdef __cplusplus
 }
