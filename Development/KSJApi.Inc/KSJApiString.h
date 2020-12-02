@@ -1,4 +1,4 @@
-#ifndef __KSJ_API_STRING_H__
+ï»¿#ifndef __KSJ_API_STRING_H__
 #define __KSJ_API_STRING_H__
 
 #include "KSJApi.h"
@@ -29,20 +29,20 @@
 extern "C"{
 #endif
 	
-	/// ÓïÑÔÀàÐÍÃ¶¾Ù 
+	/// è¯­è¨€ç±»åž‹æžšä¸¾ 
 	enum KSJ_LANGUAGE
 	{
-		L_CHS,     ///< ÖÐÎÄ
-		L_ENG,     ///< Ó¢ÎÄ
+		L_CHS,     ///< ä¸­æ–‡
+		L_ENG,     ///< è‹±æ–‡
 	};
 
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_SetLanguage
-	/// @brief     ÉèÖÃÓïÑÔ
-	/// @param     lang [in] ´«ÈëÓïÑÔÀàÐÍ
-	/// @return    ³É¹¦·µ»Ø RET_SUCCESS(0)¡£·ñÔò·µ»Ø·Ç0ÖµµÄ´íÎóÂë, Çë²Î¿¼ KSJCode.h ÖÐ´íÎóÂëµÄ¶¨Òå¡£
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     è®¾ç½®è¯­è¨€
+	/// @param     lang [in] ä¼ å…¥è¯­è¨€ç±»åž‹
+	/// @return    æˆåŠŸè¿”å›ž RET_SUCCESS(0)ã€‚å¦åˆ™è¿”å›žéž0å€¼çš„é”™è¯¯ç , è¯·å‚è€ƒ KSJCode.h ä¸­é”™è¯¯ç çš„å®šä¹‰ã€‚
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_SetLanguage(IN KSJ_LANGUAGE Language);
@@ -50,30 +50,30 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetLanguage
-	/// @brief     »ñµÃ´íÎóµÄÏêÏ¸ÐÅÏ¢
-	/// @param     pLang [out] Êä³öÓïÑÔÀàÐÍ
-	/// @return    ³É¹¦·µ»Ø RET_SUCCESS(0)¡£·ñÔò·µ»Ø·Ç0ÖµµÄ´íÎóÂë, Çë²Î¿¼ KSJCode.h ÖÐ´íÎóÂëµÄ¶¨Òå¡£
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—é”™è¯¯çš„è¯¦ç»†ä¿¡æ¯
+	/// @param     pLang [out] è¾“å‡ºè¯­è¨€ç±»åž‹
+	/// @return    æˆåŠŸè¿”å›ž RET_SUCCESS(0)ã€‚å¦åˆ™è¿”å›žéž0å€¼çš„é”™è¯¯ç , è¯·å‚è€ƒ KSJCode.h ä¸­é”™è¯¯ç çš„å®šä¹‰ã€‚
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_GetLanguage(OUT KSJ_LANGUAGE* pLanguage);
 
 	///-----------------------------------------------------------------------------
 	///
-	/// @brief     »ñµÃÓïÑÔÃû³Æ
-	/// @param     Language [in] ´«ÈëÓïÑÔÀàÐÍ£¬Çë²Î¿¼²Î¿¼KSJ_LANGUAGE
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention µ÷¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—è¯­è¨€åç§°
+	/// @param     Language [in] ä¼ å…¥è¯­è¨€ç±»åž‹ï¼Œè¯·å‚è€ƒå‚è€ƒKSJ_LANGUAGE
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention è°ƒå¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetLanguageString(IN KSJ_LANGUAGE Language);
 
 	///-----------------------------------------------------------------------------
 	///
-	/// @brief     »ñµÃ´íÎóµÄÏêÏ¸ÐÅÏ¢
-	/// @param     nErrorNo [in] ´«Èë´íÎó´úÂë£¬²Î¿¼·µ»Ø×´Ì¬Âë£¨KSJCode.H£©
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention µ÷¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—é”™è¯¯çš„è¯¦ç»†ä¿¡æ¯
+	/// @param     nErrorNo [in] ä¼ å…¥é”™è¯¯ä»£ç ï¼Œå‚è€ƒè¿”å›žçŠ¶æ€ç ï¼ˆKSJCode.Hï¼‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention è°ƒå¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  PTCHAR __stdcall KSJ_GetReturnCodeString(IN int nErrorNo);
@@ -81,10 +81,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetDeviceName
-	/// @brief     »ñµÃÏà»úÃû³Æ×Ö·û´®
-	/// @param     usDeviceType [in] ´«ÈëÏà»úÐÍºÅ, ²Î¿¼KSJ_DEVICETYPEµÄ¶¨Òå£¬¿ÉÒÔÍ¨¹ýKSJ_DeviceGetInformation/KSJ_DeviceGetInformationEx»ñµÃ¡£
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—ç›¸æœºåç§°å­—ç¬¦ä¸²
+	/// @param     usDeviceType [in] ä¼ å…¥ç›¸æœºåž‹å·, å‚è€ƒKSJ_DEVICETYPEçš„å®šä¹‰ï¼Œå¯ä»¥é€šè¿‡KSJ_DeviceGetInformation/KSJ_DeviceGetInformationExèŽ·å¾—ã€‚
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  PTCHAR __stdcall KSJ_GetDeviceName(KSJ_DEVICETYPE usDeviceType);
@@ -92,10 +92,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetParamString
-	/// @brief     »ñµÃÉèÖÃ²ÎÊýÃû³Æ×Ö·û´®
-	/// @param     Param [in] ´«Èë²ÎÊýÀàÐÍ, ²Î¿¼KSJ_PARAMµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—è®¾ç½®å‚æ•°åç§°å­—ç¬¦ä¸²
+	/// @param     Param [in] ä¼ å…¥å‚æ•°ç±»åž‹, å‚è€ƒKSJ_PARAMçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  PTCHAR __stdcall KSJ_GetParamString(KSJ_PARAM Param);
@@ -103,10 +103,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetEEPROMTypeString
-	/// @brief     »ñµÃ´æ´¢Æ÷Ð¾Æ¬ÀàÐÍ×Ö·û´®
-	/// @param     Type [in] ´«Èë²ÎÊýÀàÐÍ, ²Î¿¼KSJ_EEPROM_TYPEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—å­˜å‚¨å™¨èŠ¯ç‰‡ç±»åž‹å­—ç¬¦ä¸²
+	/// @param     Type [in] ä¼ å…¥å‚æ•°ç±»åž‹, å‚è€ƒKSJ_EEPROM_TYPEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API  PTCHAR __stdcall KSJ_GetEEPROMTypeString(KSJ_EEPROM_TYPE Type);
@@ -114,10 +114,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetAddressModeString
-	/// @brief     »ñµÃ³éµãÄ£Ê½×Ö·û´®
-	/// @param     AddressMode [in] ´«Èë³éµãÄ£Ê½ÀàÐÍ, ²Î¿¼KSJ_ADDRESSMODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—æŠ½ç‚¹æ¨¡å¼å­—ç¬¦ä¸²
+	/// @param     AddressMode [in] ä¼ å…¥æŠ½ç‚¹æ¨¡å¼ç±»åž‹, å‚è€ƒKSJ_ADDRESSMODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetAddressModeString(KSJ_ADDRESSMODE AddressMode);
@@ -125,10 +125,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetTriggerModeString
-	/// @brief     »ñµÃ´¥·¢Ä£Ê½×Ö·û´®
-	/// @param     TriggerMode [in] ´«Èë´¥·¢Ä£Ê½ÀàÐÍ, ²Î¿¼KSJ_TRIGGERMODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—è§¦å‘æ¨¡å¼å­—ç¬¦ä¸²
+	/// @param     TriggerMode [in] ä¼ å…¥è§¦å‘æ¨¡å¼ç±»åž‹, å‚è€ƒKSJ_TRIGGERMODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetTriggerModeString(KSJ_TRIGGERMODE TriggerMode);
@@ -136,10 +136,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetTriggerMethod
-	/// @brief     »ñµÃ´¥·¢ÐÅºÅÌõ¼þ×Ö·û´®
-	/// @param     TriggerMethod [in] ´«Èë´¥·¢ÐÅºÅÌõ¼þÀàÐÍ, ²Î¿¼KSJ_TRIGGERMETHODµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—è§¦å‘ä¿¡å·æ¡ä»¶å­—ç¬¦ä¸²
+	/// @param     TriggerMethod [in] ä¼ å…¥è§¦å‘ä¿¡å·æ¡ä»¶ç±»åž‹, å‚è€ƒKSJ_TRIGGERMETHODçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetTriggerMethodString(KSJ_TRIGGERMETHOD TriggerMethod);
@@ -147,10 +147,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetStartEndModeString
-	/// @brief     »ñµÃÆðÊ¼½áÊøÄ£Ê½×Ö·û´®
-	/// @param     StartEndMode [in] ´«ÈëÆðÊ¼½áÊøÄ£Ê½ÀàÐÍ, ²Î¿¼KSJ_STARTENDMODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—èµ·å§‹ç»“æŸæ¨¡å¼å­—ç¬¦ä¸²
+	/// @param     StartEndMode [in] ä¼ å…¥èµ·å§‹ç»“æŸæ¨¡å¼ç±»åž‹, å‚è€ƒKSJ_STARTENDMODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetStartEndModeString(KSJ_STARTENDMODE StartEndMode);
@@ -158,10 +158,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetTriggerStatusString
-	/// @brief     »ñµÃÏà»ú»º´æ×´Ì¬×Ö·û´®
-	/// @param     TriggerStatus [in] ´«ÈëÏà»ú»º´æ×´Ì¬ÀàÐÍ, ²Î¿¼KSJ_TRIGGERSTATUSµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—ç›¸æœºç¼“å­˜çŠ¶æ€å­—ç¬¦ä¸²
+	/// @param     TriggerStatus [in] ä¼ å…¥ç›¸æœºç¼“å­˜çŠ¶æ€ç±»åž‹, å‚è€ƒKSJ_TRIGGERSTATUSçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetTriggerStatusString(KSJ_TRIGGERSTATUS TriggerStatus);
@@ -170,10 +170,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetFunctionEnumString
-	/// @brief     »ñµÃ¹¦ÄÜÃ¶¾ÙÀàÐÍ×Ö·û´®
-	/// @param     TriggerStatus [in] ´«Èë¹¦ÄÜÃèÊöÀàÐÍ, ²Î¿¼KSJ_FUNCTIONµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—åŠŸèƒ½æžšä¸¾ç±»åž‹å­—ç¬¦ä¸²
+	/// @param     TriggerStatus [in] ä¼ å…¥åŠŸèƒ½æè¿°ç±»åž‹, å‚è€ƒKSJ_FUNCTIONçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetFunctionEnumString(KSJ_FUNCTION Function);
@@ -181,10 +181,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetFunctionDescString
-	/// @brief     »ñµÃ¹¦ÄÜÃèÊö×Ö·û´®
-	/// @param     TriggerStatus [in] ´«Èë¹¦ÄÜÃèÊöÀàÐÍ, ²Î¿¼KSJ_FUNCTIONµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—åŠŸèƒ½æè¿°å­—ç¬¦ä¸²
+	/// @param     TriggerStatus [in] ä¼ å…¥åŠŸèƒ½æè¿°ç±»åž‹, å‚è€ƒKSJ_FUNCTIONçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetFunctionDescString(KSJ_FUNCTION Function);
@@ -192,10 +192,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetGpioInModeString
-	/// @brief     »ñµÃÍâ´¥·¢ÊäÈëÒý½ÅÀàÐÍ×Ö·û´®
-	/// @param     Mode [in] ´«ÈëÍâ´¥·¢ÊäÈëÒý½ÅÀàÐÍ, ²Î¿¼KSJ_GPIOIN_MODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—å¤–è§¦å‘è¾“å…¥å¼•è„šç±»åž‹å­—ç¬¦ä¸²
+	/// @param     Mode [in] ä¼ å…¥å¤–è§¦å‘è¾“å…¥å¼•è„šç±»åž‹, å‚è€ƒKSJ_GPIOIN_MODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetGpioInModeString(KSJ_GPIOIN_MODE Mode);
@@ -203,10 +203,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetGpioOutModeString
-	/// @brief     »ñµÃÉÁ¹âµÆÊä³öÒý½ÅÀàÐÍ×Ö·û´®
-	/// @param     Mode [in] ´«ÈëÉÁ¹âµÆÊä³öÒý½ÅÀàÐÍ, ²Î¿¼KSJ_GPIOOUT_MODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—é—ªå…‰ç¯è¾“å‡ºå¼•è„šç±»åž‹å­—ç¬¦ä¸²
+	/// @param     Mode [in] ä¼ å…¥é—ªå…‰ç¯è¾“å‡ºå¼•è„šç±»åž‹, å‚è€ƒKSJ_GPIOOUT_MODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetGpioOutModeString(KSJ_GPIOOUT_MODE Mode);
@@ -214,10 +214,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetAutoExposureStatusString
-	/// @brief     »ñµÃ×Ô¶¯ÆØ¹â×´Ì¬×Ö·û´®
-	/// @param     Mode [in] ´«Èë×Ô¶¯ÆØ¹â×´Ì¬ÀàÐÍ, ²Î¿¼KSJ_AE_STATUSµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—è‡ªåŠ¨æ›å…‰çŠ¶æ€å­—ç¬¦ä¸²
+	/// @param     Mode [in] ä¼ å…¥è‡ªåŠ¨æ›å…‰çŠ¶æ€ç±»åž‹, å‚è€ƒKSJ_AE_STATUSçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetAutoExposureStatusString(KSJ_AE_STATUS AutoExposureStatus);
@@ -225,10 +225,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetBayerModeString
-	/// @brief     »ñµÃBayerÄ£Ê½ÀàÐÍ×Ö·û´®
-	/// @param     BayerMode [in] ´«ÈëBayerÄ£Ê½ÀàÐÍ, ²Î¿¼KSJ_BAYERMODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—Bayeræ¨¡å¼ç±»åž‹å­—ç¬¦ä¸²
+	/// @param     BayerMode [in] ä¼ å…¥Bayeræ¨¡å¼ç±»åž‹, å‚è€ƒKSJ_BAYERMODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetBayerModeString(KSJ_BAYERMODE BayerMode);
@@ -236,10 +236,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetBayerFilterModeString
-	/// @brief     »ñµÃBayerÂË²¨Ä£Ê½ÀàÐÍ×Ö·û´®
-	/// @param     FilterMode [in] ´«ÈëBayerÂË²¨Ä£Ê½ÀàÐÍ, ²Î¿¼KSJ_FILTERMODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—Bayeræ»¤æ³¢æ¨¡å¼ç±»åž‹å­—ç¬¦ä¸²
+	/// @param     FilterMode [in] ä¼ å…¥Bayeræ»¤æ³¢æ¨¡å¼ç±»åž‹, å‚è€ƒKSJ_FILTERMODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetBayerFilterModeString(KSJ_FILTERMODE FilterMode);
@@ -247,10 +247,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetSensitivityModeString
-	/// @brief     »ñµÃÁéÃô¶ÈÀàÐÍ×Ö·û´®
-	/// @param     SensitivityMode [in] ´«ÈëÁéÃô¶ÈÀàÐÍ, ²Î¿¼KSJ_SENSITIVITYMODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—çµæ•åº¦ç±»åž‹å­—ç¬¦ä¸²
+	/// @param     SensitivityMode [in] ä¼ å…¥çµæ•åº¦ç±»åž‹, å‚è€ƒKSJ_SENSITIVITYMODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetSensitivityModeString(KSJ_SENSITIVITYMODE SensitivityMode);
@@ -258,10 +258,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetHueChannelString
-	/// @brief     »ñµÃÑÕÉ«·ÖÁ¿Í¨µÀÃ¶¾ÙÀàÐÍ×Ö·û´®
-	/// @param     SensitivityMode [in] ´«ÈëÑÕÉ«·ÖÁ¿Í¨µÀÃ¶¾ÙÀàÐÍ, ²Î¿¼KSJHueRangeµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—é¢œè‰²åˆ†é‡é€šé“æžšä¸¾ç±»åž‹å­—ç¬¦ä¸²
+	/// @param     SensitivityMode [in] ä¼ å…¥é¢œè‰²åˆ†é‡é€šé“æžšä¸¾ç±»åž‹, å‚è€ƒKSJHueRangeçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetHueChannelString(KSJHueRange HueChannel);
@@ -269,10 +269,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetWhiteBalanceModeString
-	/// @brief     »ñµÃ°×Æ½ºâÄ£Ê½Ã¶¾ÙÀàÐÍ×Ö·û´®
-	/// @param     SensitivityMode [in] ´«Èë°×Æ½ºâÄ£Ê½Ã¶¾ÙÀàÐÍ, ²Î¿¼KSJ_WB_MODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—ç™½å¹³è¡¡æ¨¡å¼æžšä¸¾ç±»åž‹å­—ç¬¦ä¸²
+	/// @param     SensitivityMode [in] ä¼ å…¥ç™½å¹³è¡¡æ¨¡å¼æžšä¸¾ç±»åž‹, å‚è€ƒKSJ_WB_MODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetWhiteBalanceModeString(KSJ_WB_MODE WhiteBalanceMode);
@@ -280,10 +280,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetColorTemperatureString
-	/// @brief     »ñµÃÉ«ÎÂÃ¶¾ÙÀàÐÍ×Ö·û´®
-	/// @param     SensitivityMode [in] ´«ÈëÉ«ÎÂÃ¶¾ÙÀàÐÍ, ²Î¿¼KSJ_WB_MODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—è‰²æ¸©æžšä¸¾ç±»åž‹å­—ç¬¦ä¸²
+	/// @param     SensitivityMode [in] ä¼ å…¥è‰²æ¸©æžšä¸¾ç±»åž‹, å‚è€ƒKSJ_WB_MODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetColorTemperatureString(KSJ_COLOR_TEMPRATURE ColorTemperature);
@@ -291,10 +291,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetColorCorrectionModeString
-	/// @brief     »ñµÃÑÕÉ«Ð£Õý¾ØÕóÀàÐÍ×Ö·û´®
-	/// @param     SensitivityMode [in] ´«ÈëÑÕÉ«Ð£Õý¾ØÕóÀàÐÍ, ²Î¿¼KSJ_CCM_MODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—é¢œè‰²æ ¡æ­£çŸ©é˜µç±»åž‹å­—ç¬¦ä¸²
+	/// @param     SensitivityMode [in] ä¼ å…¥é¢œè‰²æ ¡æ­£çŸ©é˜µç±»åž‹, å‚è€ƒKSJ_CCM_MODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetColorCorrectionModeString(KSJ_CCM_MODE ColorCorrectionMode);
@@ -302,10 +302,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     GetDeviceStatusString
-	/// @brief     »ñµÃÉè±¸×´Ì¬×Ö·û´®
-	/// @param     DeviceStatus [in] ´«ÈëÉè±¸×´Ì¬ÀàÐÍ, ²Î¿¼KSJ_DEVICESTATUSµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—è®¾å¤‡çŠ¶æ€å­—ç¬¦ä¸²
+	/// @param     DeviceStatus [in] ä¼ å…¥è®¾å¤‡çŠ¶æ€ç±»åž‹, å‚è€ƒKSJ_DEVICESTATUSçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetDeviceStatusString(KSJ_DEVICESTATUS DeviceStatus);
@@ -313,10 +313,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetCalibrationMapModeString
-	/// @brief     »ñµÃÐ£ÕýÄ£Ê½×Ö·û´®
-	/// @param     MapMode [in] ´«ÈëÐ£ÕýÄ£Ê½ÀàÐÍ, ²Î¿¼KSJ_MAPMODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—æ ¡æ­£æ¨¡å¼å­—ç¬¦ä¸²
+	/// @param     MapMode [in] ä¼ å…¥æ ¡æ­£æ¨¡å¼ç±»åž‹, å‚è€ƒKSJ_MAPMODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetCalibrationMapModeString(KSJ_MAPMODE MapMode);
@@ -324,10 +324,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetBadPixelThresholdModeString
-	/// @brief     »ñµÃ»µµããÐÖµÄ£Ê½×Ö·û´®
-	/// @param     ThresholdMode [in] ´«Èë»µµããÐÖµÄ£Ê½ÀàÐÍ, ²Î¿¼KSJ_THRESHOLDµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—åç‚¹é˜ˆå€¼æ¨¡å¼å­—ç¬¦ä¸²
+	/// @param     ThresholdMode [in] ä¼ å…¥åç‚¹é˜ˆå€¼æ¨¡å¼ç±»åž‹, å‚è€ƒKSJ_THRESHOLDçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetBadPixelThresholdModeString(KSJ_THRESHOLD ThresholdMode);
@@ -335,10 +335,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetIoDirectionString
-	/// @brief     »ñµÃIO·½Ïò×Ö·û´®
-	/// @param     Direction [in] ´«ÈëIO·½Ïò, 1±íÊ¾´ËGPIOÊä³ö£¬0±íÊ¾´ËGPIOÊäÈë
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—IOæ–¹å‘å­—ç¬¦ä¸²
+	/// @param     Direction [in] ä¼ å…¥IOæ–¹å‘, 1è¡¨ç¤ºæ­¤GPIOè¾“å‡ºï¼Œ0è¡¨ç¤ºæ­¤GPIOè¾“å…¥
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetIoDirectionString(int Direction);
@@ -346,10 +346,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetFlashModeString
-	/// @brief     »ñµÃÉÁ¹âµÆÄ£Ê½×Ö·û´®
-	/// @param     FlashMode [in] ´«ÈëÉÁ¹âµÆÄ£Ê½ÀàÐÍ, ²Î¿¼KSJ_FLASHMODEµÄ¶¨Òå
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—é—ªå…‰ç¯æ¨¡å¼å­—ç¬¦ä¸²
+	/// @param     FlashMode [in] ä¼ å…¥é—ªå…‰ç¯æ¨¡å¼ç±»åž‹, å‚è€ƒKSJ_FLASHMODEçš„å®šä¹‰
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetFlashModeString(KSJ_FLASHMODE FlashMode);
@@ -357,10 +357,10 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetGainSelectorString
-	/// @brief     »ñµÃÔöÒæÀàÐÍ×Ö·û´®
-	/// @param     GainSelector [in] ´«ÈëÔöÒæÀàÐÍ
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—å¢žç›Šç±»åž‹å­—ç¬¦ä¸²
+	/// @param     GainSelector [in] ä¼ å…¥å¢žç›Šç±»åž‹
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetGainSelectorString(int GainSelector);
@@ -368,20 +368,20 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	///
 	/// @brief     KSJ_GetExposureModeString
-	/// @brief     »ñµÃÆØ¹âÀàÐÍ×Ö·û´®
-	/// @param     ExposureMode [in] ´«ÈëÆØ¹âÀàÐÍ
-	/// @return    ×Ö·û´®ÐÅÏ¢µØÖ·Ö¸Õë
-	/// @attention ¿ÉÒÔÔÚÈÎÒâÊ±¿Ìµ÷ÓÃ
+	/// @brief     èŽ·å¾—æ›å…‰ç±»åž‹å­—ç¬¦ä¸²
+	/// @param     ExposureMode [in] ä¼ å…¥æ›å…‰ç±»åž‹
+	/// @return    å­—ç¬¦ä¸²ä¿¡æ¯åœ°å€æŒ‡é’ˆ
+	/// @attention å¯ä»¥åœ¨ä»»æ„æ—¶åˆ»è°ƒç”¨
 	///
 	///-----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall KSJ_GetExposureModeString(int ExposureMode);
 
 	/// -----------------------------------------------------------------------------
 	///
-	/// @brief     ÕâÊÇÒ»¸ö¸¨Öúº¯Êý£¬·½±ãÓÃ»§»ñÈ¡MVD_USER_PRESETTINGÃ¶¾ÙÖµ¶ÔÓ¦µÄ×Ö·û´®£¬Õâ¸öÓÃ»§Ò²¿ÉÒÔ²»µ÷ÓÃ£¬×ÔÐÐÉèÖÃ¶ÔÓ¦µÄ×Ö·û´®ÐÅÏ¢¡£
-	/// @attention ÎÞ¡£
-	/// @param     [IN]UserPresetting ²Î¿¼MVD_USER_PRESETTINGÃ¶¾ÙÀàÐÍ
-	/// @return    ·µ»Ø¶ÔÓ¦µÄ×Ö·û´®Ö¸Õë¡£
+	/// @brief     è¿™æ˜¯ä¸€ä¸ªè¾…åŠ©å‡½æ•°ï¼Œæ–¹ä¾¿ç”¨æˆ·èŽ·å–MVD_USER_PRESETTINGæžšä¸¾å€¼å¯¹åº”çš„å­—ç¬¦ä¸²ï¼Œè¿™ä¸ªç”¨æˆ·ä¹Ÿå¯ä»¥ä¸è°ƒç”¨ï¼Œè‡ªè¡Œè®¾ç½®å¯¹åº”çš„å­—ç¬¦ä¸²ä¿¡æ¯ã€‚
+	/// @attention æ— ã€‚
+	/// @param     [IN]UserPresetting å‚è€ƒMVD_USER_PRESETTINGæžšä¸¾ç±»åž‹
+	/// @return    è¿”å›žå¯¹åº”çš„å­—ç¬¦ä¸²æŒ‡é’ˆã€‚
 	///
 	/// -----------------------------------------------------------------------------
 	KSJ_API PTCHAR __stdcall GetUserPresettingString(IN int UserPresetting);

@@ -200,6 +200,57 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_HueSaturationGetEnable(int nIndex, bool *pbEnable);
 
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_SharpenParamSet
+	/// @brief     设置图像锐化参数
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     nKernelSize [in] 设置图像锐化计算滤波核大小
+	/// @param     nWeighted [in] 设置图像锐化计算权重
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///          \li 该算法由软件执行，可能会影响RGB彩色图像的采集效率和预览帧率
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_SharpenParamSet(int nIndex, int nKernelSize, int nWeighted);
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_SharpenParamGet
+	/// @brief     获取图像锐化参数
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pnKernelSize [out] 获取图像锐化计算滤波核大小
+	/// @param     pnWeighted [out] 获取图像锐化计算权重
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_SharpenParamGet(int nIndex, int* pnKernelSize, int* pnWeighted);
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_SharpenSetEnable
+	/// @brief     使能或关闭图像锐化功能
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     bEnable [in] ture 开启图像锐化功能，false 关闭图像锐化功能
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_SharpenSetEnable(int nIndex, bool bEnable);
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_SharpenGetEnable
+	/// @brief     图像锐化功能是否使能
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pbEnable [out] 返回图像锐化功能是否使能，ture 开启图像锐化功能，false 关闭图像锐化功能
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_SharpenGetEnable(int nIndex, bool *pbEnable);
+
 #ifdef __cplusplus
 }
 #endif
