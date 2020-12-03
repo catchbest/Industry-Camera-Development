@@ -548,6 +548,36 @@ void CKSJDemoVCDlg::CaptureThreadX()
 
 			if (RET_SUCCESS == nRet)
 			{
+				//int i;
+				//int mKSJ_VWsize = nColSize;
+				//int mKSJ_VHsize = nRowSize;
+				//int sublen = mKSJ_VWsize * mKSJ_VHsize;
+
+				//unsigned char* pKSJBuffer = new unsigned char[sublen * 3];
+
+				//memset(pKSJBuffer, 255, sublen * 3);
+
+				//for (i = 0; i < sublen; i++)
+				//{
+				//	pKSJBuffer[i] = pImageBuffer[i];
+				//}
+
+				//for (i = 0; i < sublen; i++)
+				//{
+				//	int p0 = sublen - i - 1;
+				//	int p1 = (sublen - i) * 3 - 1;
+				//	int p2 = (sublen - i) * 3 - 2;
+				//	int p3 = (sublen - i) * 3 - 3;
+				//	pKSJBuffer[p1] = 0;
+				//	pKSJBuffer[p2] = pKSJBuffer[p0];
+				//	pKSJBuffer[p3] = pKSJBuffer[p0];
+				//}
+
+				//KSJ_HelperSaveToBmp(pImageBuffer, nColSize, nRowSize, 8, _T("E:\\SS01.BMP"));
+				//KSJ_HelperSaveToBmp(pKSJBuffer, nColSize, nRowSize, 24, _T("E:\\SS02.BMP"));
+
+				//delete[]pKSJBuffer;
+
 				++m_nCaptureTickCount;
 
 				cv::Mat Dst;
