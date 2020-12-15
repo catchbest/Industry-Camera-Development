@@ -26,7 +26,7 @@ extern "C"{
 	/// @brief     以ktb文件形式，下载LUT查找表至相机（16bit to 8bit LUT）
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pszKtbFile [in] .ktb文件路径；请通过KSJ_QueryFunction(KSJ_SUPPORT_LUT_DOWNLOAD)查询相机是否支持LUT；该LUT仅本次有效，相机断电以后，该查找表将会丢失。
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -39,7 +39,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pData [out] 指向查找表数据的指针
 	/// @param     nBytes [in] 查找表数据个数，即pData指针指向的内存块的大小；该LUT仅本次有效，相机断电以后，该查找表将会丢失。
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -51,7 +51,7 @@ extern "C"{
 	/// @brief     使能LUT查找表功能
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     bEnable [in] 设置是否使LUT功能生效
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -63,7 +63,7 @@ extern "C"{
 	/// @brief     获取LUT查找表是否使能
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pbEnable [out] 返回是否LUT功能已生效
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -85,7 +85,7 @@ extern "C"{
 	/// @brief     选择截位模式
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     SensitivityMode [in] 设置截位模式
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -97,7 +97,7 @@ extern "C"{
 	/// @brief     获取当前的截位模式
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pSensitivityMode [out] 获取当前截位模式
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------

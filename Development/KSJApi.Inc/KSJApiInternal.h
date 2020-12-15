@@ -21,6 +21,13 @@
 extern "C"{
 #endif
 
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///
+	/// 该头文件内的接口函数为凯视佳内部相机调试接口，不能提供给客户使用
+	/// 如果不正确使用这些接口，可能会造成相机采图出现问题，甚至造成相机损坏
+	/// 
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	/// 发送控制命令，各字节符合USB协议
 	/// MSB( IoBlockEx.uOffset ) = SETUPDAT[3], LSB( IoBlockEx.uOffset ) =  SETUPDAT[2] 
 	/// MSB( IoBlockEx.uIndex )  = SETUPDAT[5], LSB( IoBlockEx.uIndex )  =  SETUPDAT[4] 
@@ -74,6 +81,16 @@ extern "C"{
 	KSJ_API  int __stdcall KSJ_ResetPipe(int nIndex);
 	KSJ_API  int __stdcall KSJ_UsbHostResetDevice(int nIndex);
 
+	KSJ_API  int __stdcall KSJ_WorkingModeProgram(int nIndex, unsigned short wValue);
+	KSJ_API  int __stdcall KSJ_WorkingModeReadout(int nIndex, unsigned short *pValue);
+
+	KSJ_API  int __stdcall KSJ_WorkingModeExProgram(int nIndex, unsigned short wValue);
+	KSJ_API  int __stdcall KSJ_WorkingModeExReadout(int nIndex, unsigned short *pValue);
+
+	KSJ_API  int __stdcall KSJ_ColorModeProgram(int nIndex, unsigned short wValue);
+	KSJ_API  int __stdcall KSJ_ColorModeReadout(int nIndex, unsigned short *pValue);
+
+	KSJ_API  int __stdcall KSJ_SerialsDescProgram(int nIndex, unsigned char btDesc[16]);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

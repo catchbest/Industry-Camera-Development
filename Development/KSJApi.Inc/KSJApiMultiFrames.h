@@ -27,7 +27,7 @@ extern "C"{
 	/// @param     AmCol [in] 采集时拼接的单个帧针对有效成像区域列抽点模式（请参考KSJ_ADDRESSMODE的定义）
 	/// @param     AmRow [in] 采集时针拼接的单个帧对有效成像区域行抽点模式（请参考KSJ_ADDRESSMODE的定义）
 	/// @param     wMultiFrameNum [in] 设置单次采集的拼接帧数
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 设置多帧wMultiFrameNum>1时，内触发或者软触发，采集一次图像就会返回wMultiFrameNum帧图像组成的拼帧数据；如果是外触发或者固定帧率，需要有wMultiFrameNum个触发信号之后，采集函数才返回一个拼帧。
 	///          \li 多帧情况更多是用在线阵相机时，自动拼接wMultiFrameNum行图像成一个面阵图像。
@@ -48,7 +48,7 @@ extern "C"{
 	/// @param     pColAddressMode [out] 返回拼接的单个帧图像感光芯片采集时成像感光的有效区域列抽点模式（请参考KSJ_ADDRESSMODE的定义）
 	/// @param     pRowAddressMode [out] 返回拼接的单个帧图像感光芯片采集时成像感光的有效区域行抽点模式（请参考KSJ_ADDRESSMODE的定义）
 	/// @param     pwMultiFrameNum [out] 返回采集的拼接帧数
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -66,7 +66,7 @@ extern "C"{
 	/// @param     AmCol [in] 采集时拼接的单个帧针对有效成像区域列抽点模式（请参考KSJ_ADDRESSMODE的定义）
 	/// @param     AmRow [in] 采集时针拼接的单个帧对有效成像区域行抽点模式（请参考KSJ_ADDRESSMODE的定义）
 	/// @param     wMultiFrameNum [in] 设置单次采集的拼接帧数
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 设置多帧wMultiFrameNum>1时，内触发或者软触发，采集一次图像就会返回wMultiFrameNum帧图像组成的拼帧数据；如果是外触发或者固定帧率，需要有wMultiFrameNum个触发信号之后，采集函数才返回一个拼帧。
 	///          \li 多帧情况更多是用在线阵相机时，自动拼接wMultiFrameNum行图像成一个面阵图像。
@@ -87,7 +87,7 @@ extern "C"{
 	/// @param     pColAddressMode [out] 返回拼接的单个帧图像感光芯片采集时成像感光的有效区域列抽点模式（请参考KSJ_ADDRESSMODE的定义）
 	/// @param     pRowAddressMode [out] 返回拼接的单个帧图像感光芯片采集时成像感光的有效区域行抽点模式（请参考KSJ_ADDRESSMODE的定义）
 	/// @param     pwMultiFrameNum [out] 返回采集的拼接帧数
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------

@@ -48,6 +48,16 @@ extern "C"{
 		TCHAR           *pRoiSizeItemString[MAX_ROI_SIZE_TIEMS_NUM];
 	};
 
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_GetRoiSizeItems
+	/// @brief     获取指定型号相机的常用ROI列表
+	/// @param     usDeviceType [in] 相机类型（参考KSJ_DEVICETYPE定义）
+	/// @param     pRoiSizeList [out] ROI列表（参考MVD_ROI_SIZE_LIST定义）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 该函数可以随时调用
+	///
+	///-----------------------------------------------------------------------------
 	KSJ_API int __stdcall KSJ_GetRoiSizeItems(IN KSJ_DEVICETYPE usDeviceType, OUT MVD_ROI_SIZE_LIST *pRoiSizeList);
 
 #ifdef __cplusplus

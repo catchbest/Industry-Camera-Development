@@ -466,21 +466,6 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AGCGetCur(int nIndex, unsigned short *pusCur);
 
-	/// 如下函数未实现
-	/*
-	KSJ_API  int __stdcall KSJ_AWAIBA_SetAntiBlooming(int nIndex, bool bEnable);
-	KSJ_API  int __stdcall KSJ_AWAIBA_GetAntiBlooming(int nIndex, bool *bEnable);
-
-	KSJ_API  int __stdcall KSJ_AWAIBA_SetAntiCorona(int nIndex, bool bEnable);
-	KSJ_API  int __stdcall KSJ_AWAIBA_GetAntiCorona(int nIndex, bool *bEnable);
-
-	enum KSJ_AWAIBA_ANALOGUE_GAIN {KSJ_AAG_X1, KSJ_AAG_X4};
-	KSJ_API  int __stdcall KSJ_AWAIBA_SetAnalogueGain(int nIndex, KSJ_AWAIBA_ANALOGUE_GAIN Gain);
-	KSJ_API  int __stdcall KSJ_AWAIBA_GetAnalogueGain(int nIndex, KSJ_AWAIBA_ANALOGUE_GAIN *pGain);
-	*/
-
-
-
 	///-----------------------------------------------------------------------------
 	/// @brief     KSJ_GammaLutFileDownload
 	/// @brief     以ktb文件形式，下载Gamma LUT查找表至相机
@@ -568,6 +553,256 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_GetErrorInfo(IN int nErrorNo, OUT TCHAR pszErrorInfo[256]);
 
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_PreviewGetFrameRate
+	/// @brief     获取帧速
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     fFrameRate [out] 返回当前视频流的帧速
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_PreviewGetFrameRate(int nIndex, float *fFrameRate);
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     获取暂停时的那一帧图像数据
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pData [out] 由用户提供的数据区域，函数调用返回后，此区域会被填充暂停时的图像数据
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_PreviewGetPausedData(int nIndex, unsigned char *pData);
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_PreviewPause
+	/// @brief     暂停或继续视频流
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     bPause   [in] true 暂停视频流，false 继续视频流 
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_PreviewPause(int nIndex, bool bPause);
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     获取暂停时的那一帧图像数据
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pData [out] 由用户提供的数据区域，函数调用返回后，此区域会被填充暂停时的图像数据
+	/// @param     pnWidth [out] 返回图像的宽度（像素）
+	/// @param     pnHeight[out] 返回图像的高度（像素）
+	/// @param     pnBitCount[out] 返回图像的每个像素位数（8，24或32）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_PreviewGetPausedDataEx(int nIndex, unsigned char *pData, int *pnWidth, int *pnHeight, int *pnBitCount);
+
+	/// Preview Mode
+	enum KSJ_PREVIEWMODE// 枚举类型视频预览模式
+	{
+		PM_RAWDATA, ///预览原始数据，对于黑白设备，必须设置为PM_RAWDATA
+		PM_RGBDATA  ///预览24位或32位彩色数据（由Bayer模式决定）
+	};
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     获取设备默认的预览模式
+	/// 参数：
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pPreviewMode   [out] 获取相机默认的预览模式（参考KSJ_PREVIEWMODE定义）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_PreviewGetDefaultMode(int nIndex, KSJ_PREVIEWMODE *pPreviewMode);
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_PreviewSetMode
+	/// @brief     设置视频流为原始采集数据还是RGB 24位或32位彩色数据格式，一般用户无需设置
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     PreviewMode [in] 设置的预览模式（参考KSJ_PREVIEWMODE定义）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_PreviewSetMode(int nIndex, KSJ_PREVIEWMODE PreviewMode);
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     KSJ_PreviewGetMode
+	/// @brief     获取相机的当前预览模式
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pPreviewMode   [out] 获取当前的预览模式（参考KSJ_PREVIEWMODE定义）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_PreviewGetMode(int nIndex, KSJ_PREVIEWMODE *pPreviewMode);
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_PreviewSetCalibration
+	/// @brief     对预览流是否进行畸变矫正处理
+	/// 参数：
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     bEnable [in] 为true时时开启畸变矫正, false时关闭畸变矫正
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_PreviewSetCalibration(int nIndex, bool bEnable);
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_PreviewGetCalibration
+	/// @brief     获取当前预览流是否进行畸变矫正处理
+	/// 参数：
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pbEnable [out] 返回畸变矫正对于预览的使能状态
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_PreviewGetCalibration(int nIndex, bool *pbEnable);
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_CaptureSetCalibration
+	/// @brief     对采集是否进行畸变矫正处理
+	/// 参数：
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     bEnable [in] 为true时时开启畸变矫正, false时关闭畸变矫正
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_CaptureSetCalibration(int nIndex, bool bEnable);
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_CaptureGetCalibration
+	/// @brief     获取采集时是否进行畸变矫正处理
+	/// 参数：
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pbEnable [out] 返回畸变矫正对于采集的使能状态
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_CaptureGetCalibration(int nIndex, bool *pbEnable);
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_LoadCalibrationMapFile
+	/// @brief     用于从文件加载畸变校正参数信息
+	/// 参数：
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pszFilePath [in] 需要加载载畸变校正参数的文件名（完整路径）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_LoadCalibrationMapFile(int nIndex, const TCHAR *pszFilePath);
+
+	enum KSJ_MAPMODE ///凯视佳工业相机畸变校正目标值计算方式定义
+	{
+		KSJ_MM_NEARESTNEIGHBOR,
+		KSJ_MM_BILINEAR
+	};
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_SetCalibrationMapMode
+	/// @brief     设置畸变校正目标值计算方法
+	/// 参数：
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     MapMode [in] 设置畸变校正目标值计算方法
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_SetCalibrationMapMode(int nIndex, KSJ_MAPMODE MapMode);
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_GetCalibrationMapMode
+	/// @brief     获取畸变校正目标值计算方法
+	/// 参数：
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pMapMode [out] 当前畸变校正目标值的计算方法
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_GetCalibrationMapMode(int nIndex, KSJ_MAPMODE *pMapMode);
+
+
+	enum KSJ_SNAPBUTTONSTATUS ///Snap功能引脚状态
+	{
+		KSJ_UP, 	///按键处于闭合状态
+		KSJ_DOWN 	///按键处于开启状态
+	};
+
+	///-----------------------------------------------------------------------------
+	///
+	/// @brief     读取Snap功能引脚状态
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     pSnapButtonStatus [out] 返回Snap功能引脚状态, KSJ_SNAPBUTTONSTATUS类型
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_SnapButtonStatus(int nIndex, KSJ_SNAPBUTTONSTATUS *pSnapButtonStatus);
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_HelperStretchBmp
+	/// @brief     将pData(宽度为nWidth, 高度为nHeight, 比特位数为nBitCount)的图像数据缩放为宽度为nStretchWidh, 高度为nStretchHeight的数据并填充到用户分配的pStretchData缓冲区,比特位数不变
+	/// 参数：
+	/// @param     pData [in] 输入图像的数据指针
+	/// @param     nWidth [in] 输入图像的宽度
+	/// @param     nHeight [in] 输入图像的高度
+	/// @param     nBitCount [in] 输入图像的比特深度
+	/// @param     pStretchData [out] 输出图像保存内存地址指针
+	/// @param     nStretchWidth [out] 输出图像的宽度
+	/// @param     nStretchHeight [out] 输出图像的高度
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_HelperStretchBmp(unsigned char *pData, int nWidth, int nHeight, int nBitCount, unsigned char *pStretchData, int nStretchWidth, int nStretchHeight);
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_HelperGetBmpFileHeaderSize
+	/// @brief     根据图像的比特深度得到BMP图像的文件头,信息头,及颜色表总的字节数目
+	/// 参数：
+	/// @param     nBitCount [in] 图像的比特深度
+	/// @param     pnTotalBytes [out] BMP的文件头，信息头，以及颜色表的总字节数
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_HelperGetBmpFileHeaderSize(int nBitCount, int *pnTotalBytes);
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_HelperGetBmpFileHeader
+	/// @brief     得到BMP图像的文件头和信息头
+	/// 参数：
+	/// @param     nWidth [in] 图像的宽度
+	/// @param     nHeight [in] 图像的高度
+	/// @param     nBitCount [in] 图像的比特深度
+	/// @param     pHeader [out] BMP的文件头和信息头数据保存的地址指针
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_HelperGetBmpFileHeader(int nWidth, int nHeight, int nBitCount, void *pHeader);
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_CaptureRgbDataToClipboard
+	/// @brief     采集一帧图像到系统剪贴板，从一个相机采集一帧图像并放到系统的剪切板
+	/// 参数：
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_CaptureRgbDataToClipboard(int nIndex);
+
+	KSJ_API  int __stdcall KSJ_GammaLutInfoProgram(int nIndex, unsigned short wValue);
+	KSJ_API  int __stdcall KSJ_GammaLutInfoReadout(int nIndex, unsigned short *pValue);
+
+	KSJ_API  int __stdcall KSJ_GammaLutFileProgram(int nIndex, TCHAR *pszFile);
+	KSJ_API  int __stdcall KSJ_GammaLutDataProgram(int nIndex, unsigned short *pData, int nWords);
+	KSJ_API  int __stdcall KSJ_GammaLutDataReadout(int nIndex, unsigned short *pData, int *pnWords);
+
 #if 0
 
 KSJ_API  int __stdcall KSJ_IsSupportLUT( int nIndex );                      /// Use KSJ_QueryFunction
@@ -603,6 +838,7 @@ KSJ_API  int __stdcall KSJ_WhiteBalanceGetEnable( int nIndex, bool *pbEnable );
 
 // KSJ_API  int __stdcall KSJ_ColorCorrectionSetEnable( int nIndex, bool bEnable );
 // KSJ_API  int __stdcall KSJ_ColorCorrectionGetEnable( int nIndex, bool *pbEnable );
+
 
 
 #endif

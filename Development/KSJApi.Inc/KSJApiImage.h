@@ -24,7 +24,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     btLow [in] 设置相邻像素的比较阈值，默认20
 	/// @param     btHigh [in] 设置相邻像素的比较阈值，默认50
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 如果该像素与相邻像素的差值大于btLow，并且它与次相邻相邻像素的差值大于btHigh，那么该点将被认为是坏点。
 	///          \li 该设置仅对软件坏点校正生效，如果硬件支持怀点校正，那么使用内部预设值进行硬件坏点校正，不会执行软件坏点校正。
@@ -39,7 +39,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pbtLow [out] 返回相邻像素的比较阈值
 	/// @param     pbtHigh [out] 返回次相邻像素的比较阈值
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -59,7 +59,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     bEnable [in] 是否加入坏点补偿算法
 	/// @param     Threshold [in] 选取的阈值，参考KSJ_THRESHOLD说明
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 坏点校正设置及阈值设置，低阈值会过滤更多的坏点
 	///          \li 如果相机硬件支持坏点校正，硬件将使用对应的阈值模式进行坏点校正。
@@ -75,7 +75,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pbEnable [in] 返回是否加入坏点补偿算法
 	/// @param     pThreshold [in] 返回当前坏点补偿算法所选取的阈值模式，只针对支持硬件坏点校正的设备有效
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -88,7 +88,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pnMinSaturation [out] 取得饱和度设置的最小值
 	/// @param     pnMaxSaturation [out] 取得饱和度设置的最大值
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -101,7 +101,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pnMinSaturation [out] 取得饱和度设置的最小值
 	/// @param     pnMaxSaturation [out] 取得饱和度设置的最大值
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -113,7 +113,7 @@ extern "C"{
 	/// @brief     设置图像的饱和度
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     nSaturation [in] 饱和度设置的值
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 该算法由软件执行，可能会影响采集效率和预览帧率
 	///          \li nSaturation = 0 表示不做饱和度调整
@@ -127,7 +127,7 @@ extern "C"{
 	/// @brief     获取相机饱和度参数
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pnStaturation [out] 返回相机饱和度
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -154,7 +154,7 @@ extern "C"{
 	/// @param     nHue [in] 设置指定颜色分量的色度，取值范围-180 ~ 180
 	/// @param     nSaturation [in] 设置指定颜色的饱和度，取值范围-100 ~ 100
 	/// @param     nLightness [in] 设置指定颜色分量的亮度，取值范围-100 ~ 100
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 该算法由软件执行，可能会影响RGB彩色图像的采集效率和预览帧率
 	///
@@ -170,7 +170,7 @@ extern "C"{
 	/// @param     pnHue [out] 获取指定颜色分量的色度
 	/// @param     pnSaturation [out] 获取指定颜色的饱和度
 	/// @param     pnLightness [out] 获取指定颜色分量的亮度
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -182,7 +182,7 @@ extern "C"{
 	/// @brief     使能或关闭颜色分量调节功能
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     bEnable [in] ture 开启颜色分量调节，false 关闭颜色分量调节
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -194,7 +194,7 @@ extern "C"{
 	/// @brief     获取颜色分量调节功能是否使能
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pbEnable [out] 返回颜色分量调节功能是否使能，ture 开启颜色分量调节，false 关闭颜色分量调节
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -207,7 +207,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     nKernelSize [in] 设置图像锐化计算滤波核大小
 	/// @param     nWeighted [in] 设置图像锐化计算权重
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 该算法由软件执行，可能会影响RGB彩色图像的采集效率和预览帧率
 	///
@@ -221,7 +221,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pnKernelSize [out] 获取图像锐化计算滤波核大小
 	/// @param     pnWeighted [out] 获取图像锐化计算权重
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -233,7 +233,7 @@ extern "C"{
 	/// @brief     使能或关闭图像锐化功能
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     bEnable [in] ture 开启图像锐化功能，false 关闭图像锐化功能
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -245,7 +245,7 @@ extern "C"{
 	/// @brief     图像锐化功能是否使能
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pbEnable [out] 返回图像锐化功能是否使能，ture 开启图像锐化功能，false 关闭图像锐化功能
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------

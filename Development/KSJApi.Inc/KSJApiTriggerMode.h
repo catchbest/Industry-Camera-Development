@@ -31,7 +31,7 @@ extern "C"{
 	/// @brief     设置相机的触发工作模式
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     TriggerMode [in] 需要设置的相机工作模式，请参考KSJ_TRIGGERMODE的说明
-	/// @return    成功返回RET_SUCCESS；不支持的触发模式，返回RET_NOTSUPPORT；其他错误参考回状态码（KSJApiRetCode.h）
+	/// @return    成功返回RET_SUCCESS；不支持的触发模式，返回RET_NOTSUPPORT；其他错误参考回状态码（KSJCode.h）
 	/// @attention 调用KSJ_Init函数初始化后调用。
 	///
 	///-----------------------------------------------------------------------------
@@ -43,7 +43,7 @@ extern "C"{
 	/// @brief     获取当前相机的触发工作模式
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     TriggerMode [out] 得到当前相机的工作模式，请参考KSJ_TRIGGERMODE的说明
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -62,7 +62,7 @@ extern "C"{
 	/// @brief     读取相机缓存状态
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pTriggerStatus [out] 得到当前相机的板级缓存中是否有图像数据可供读取，KSJ_HAVE表示有1个或者多个图像保存在帧缓存
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。；不支持该功能的相机，返回RET_NOTSUPPORT
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。；不支持该功能的相机，返回RET_NOTSUPPORT
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -73,7 +73,7 @@ extern "C"{
 	/// @brief     KSJ_EmptyFrameBuffer
 	/// @brief     清空帧存中的数据
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。软触发模式下， 不支持清空缓存，返回RET_NOTSUPPORT
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。软触发模式下， 不支持清空缓存，返回RET_NOTSUPPORT
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -96,7 +96,7 @@ extern "C"{
     /// @brief     当相机设置为固定帧率触发模式或者高低电平有效固定帧率触发模式时,设置相机的固定帧率
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     fFrameRate [in] 设置固定帧率（帧每秒）
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用；只有在触发模式设置为相机设置为固定帧率触发模式或者高低电平有效固定帧率触发模式时，才能够调用该函数，否则返回RET_NOTSUPPORT
 	///
 	///-----------------------------------------------------------------------------
@@ -108,7 +108,7 @@ extern "C"{
 	/// @brief     得到当前设置的固定帧率
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pfFrameRate [out] 得到当前设置的固定帧率（帧每秒）
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -129,7 +129,7 @@ extern "C"{
 	/// @brief     设置外触发的触发条件
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     TriggerMethod [in] 设置外触发模式时,触发的条件，请参看KSJ_TRIGGERMETHOD的说明
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -141,7 +141,7 @@ extern "C"{
 	/// @brief     得到当前相机设置的外触发条件
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pTriggerMethod [out] 得到当前相机设置的外触发条件
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -154,7 +154,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     wMin [out] 外触发延时的最小设置值，这个值乘以100us为实际的时间
 	/// @param     wMax [out] 外触发延时的最大设置值，这个值乘以100us为实际的时间
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用；表示相机收到外触发信号之后，会延迟这个设定的时间再从Sensor采集图像
 	///
 	///-----------------------------------------------------------------------------
@@ -166,7 +166,7 @@ extern "C"{
 	/// @brief     设置外触发延时时间
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     wDelay [in] 设置延时时间，这个值乘以100us为实际的时间
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -178,7 +178,7 @@ extern "C"{
 	/// @brief     获取用户设置的外触发延时时间，单位为100us
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pwDelay [out] 获取的外触发延时时间，单位为100us
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -190,7 +190,7 @@ extern "C"{
 	/// @brief     设置超时时间
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     dwTimeOut [in] 设置超时时间,单位为毫秒
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用；设置采集图像（KSJ_CaptureRgbData等）的超时时间，外触发时，这个时间最好大于外触发可能的最大时间间隔
 	///
 	///-----------------------------------------------------------------------------
@@ -202,7 +202,7 @@ extern "C"{
 	/// @brief     获取超时时间
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pdwTimeOut [out] 获取读取一帧图像的超时时间，单位为毫秒
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------

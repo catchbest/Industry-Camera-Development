@@ -36,7 +36,7 @@ extern "C"{
 	/// @brief     设置白平衡模式
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     WbMode [in] 设置的白平衡模式
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -48,7 +48,7 @@ extern "C"{
 	/// @brief     获取当前的白平衡模式
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pWbMode [out] 返回相机白平衡模式
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -61,7 +61,7 @@ extern "C"{
 	/// @brief     手动设置白平衡校正矩阵
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     fMatrix [in] 用于设置白平衡校正矩阵，校正矩阵为1x3的数组，其中中R、G、B三个分量的系数分别为fMatrix [0] 、fMatrix [1] 、fMatrix [2] 
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 白平衡计算公式：Rw = fMatrix[0] * R, Gw = fMatrix[1] * G, Bw = fMatrix[1] * B
 	///          \li 三个分量的取值范围为： 0 - 5
@@ -75,7 +75,7 @@ extern "C"{
 	/// @brief     获取当前的白平衡校正矩阵
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     fMatrix [out] 返回获取的白平衡调整系数，数组中R、G、B三个分量的系数分别为fMatrix [0] 、fMatrix [1] 、fMatrix [2] 
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -87,7 +87,7 @@ extern "C"{
 	/// @brief     白平衡回调函数类型定义
 	/// @param     fMatrix [out] 回传给用户的白平衡校正矩阵
 	/// @param     lpContext [out] 用户调用KSJ_WhiteBalanceAutoSetCallBack时传入的上下文指针
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 非手动白平衡模式时，回调返回当前的白平衡校正矩阵
 	///
@@ -101,7 +101,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pfCallBack [in] 自动白平衡回调函数指针
 	/// @param     lpContext [in] 上下文指针
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -115,7 +115,7 @@ extern "C"{
 	/// @param     fMatrixG [out] 回传给用户的白平衡绿色校正值
 	/// @param     fMatrixB [out] 回传给用户的白平衡蓝色校正值
 	/// @param     lpContext [out] 用户调用KSJ_WhiteBalanceAutoSetCallBack时传入的上下文指针
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 非手动白平衡模式时，回调返回当前的白平衡校正矩阵
 	///
@@ -130,7 +130,7 @@ extern "C"{
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pfCallBackEx [in] 自动白平衡回调函数指针
 	/// @param     lpContext [in] 上下文指针
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 注意前面KSJ_WhiteBalanceAutoSetCallBack设置的回调函数优先级高于这个函数设置，如果KSJ_WhiteBalanceAutoSetCallBack非空，那么这个函数设置的回调函数将不会被执行。
 	///
@@ -143,7 +143,7 @@ extern "C"{
 	/// @brief     设置软件自动白平衡的参考像素，是一个阈值
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     nPhi [in] 默认值为0，用户无需改动
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 该阈值只有在软件白平衡的时候生效
 	///
@@ -156,7 +156,7 @@ extern "C"{
 	/// @brief     获取自动白平衡的阈值
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pnPhi [out] 返回当前的阈值参数
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -176,7 +176,7 @@ extern "C"{
 	/// @brief     选择白平衡预设组值
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     WbPresetting [in] 预设色温白平衡。
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 凯视佳工业相机预设三种色温下的白平衡，在选择软件预设白平衡或者硬件预设白平衡的时候，可以选择不同的色温白平衡
 	///
@@ -189,7 +189,7 @@ extern "C"{
 	/// @brief     获取并返回相机当前使用的预设色温白平衡
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pWbPresetting [out] 获取并返回相机当前使用的预设色温白平衡
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -212,7 +212,7 @@ extern "C"{
 	/// @brief     设置颜色校正模式
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     CcmMode [in] 颜色校正模式
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -224,7 +224,7 @@ extern "C"{
 	/// @brief     获取颜色校正模式
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pCcmMode [out] 颜色校正模式
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------
@@ -240,7 +240,7 @@ extern "C"{
 	/// @brief     手动设置颜色校正矩阵
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     fMatrix [in] 颜色校正系数矩阵，为3x3 float型的矩阵
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///          \li 在软件/硬件手工输入矩阵值校正模式时生效，计算公式：
 	///          \li Bc = fMatrix[2][0] * Rw + fMatrix[2][1] * Gw + fMatrix[2][2] * Bw
@@ -256,7 +256,7 @@ extern "C"{
 	/// @brief     获取当前的颜色校正矩阵
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     fMatrix [in] 颜色校正系数矩阵，为3x3 float型的矩阵
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------	
@@ -269,7 +269,7 @@ extern "C"{
 	/// @brief     设置颜色校正的预设组值
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     CcmPresetting [in] 预设色温颜色校正，凯视佳工业相机预设三种色温下的颜色校正矩阵
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------	
@@ -281,7 +281,7 @@ extern "C"{
 	/// @brief     获取当前选择的颜色校正预设组值
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
 	/// @param     pCcmPresetting [out] 获取并返回相机当前使用的预设色温颜色校正
-	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJApiRetCode.h 中错误码的定义。
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
 	/// @attention 调用KSJ_Init函数初始化后调用
 	///
 	///-----------------------------------------------------------------------------	
