@@ -38,7 +38,7 @@ print("bitcount = %d" % (nBitCount.value))
 
 # 设置一下曝光500ms
 libKsj.KSJ_ExposureTimeSet.argtypes = (c_int, c_float)
-libKsj.KSJ_ExposureTimeSet(0, 100);
+libKsj.KSJ_ExposureTimeSet(0, 1000);
 fexpTime = c_float()
 libKsj.KSJ_ExposureTimeGet(0, byref(fexpTime));
 print("fexpTime = %d" % (fexpTime.value))
@@ -48,7 +48,11 @@ print("fexpTime = %d" % (fexpTime.value))
 bayermode = c_int();
 libKsj.KSJ_BayerGetMode(0, byref(bayermode));
 libKsj.KSJ_BayerSetMode(0, bayermode.value + 4);
-            
+           
+		   
+libKsj.KSJ_TriggerModeSet(0, 0)
+libKsj.KSJ_SetFixedFrameRateEx(0, 30)
+ 
 # 取得第一个相机的触发模式
 trigermode = c_int();
 libKsj.KSJ_TriggerModeGet(0, byref(trigermode))
@@ -69,7 +73,7 @@ while 1:
         # 读取图像
         retValue = libKsj.KSJ_CaptureRgbData(0, pRawData)
         # 把内存数据转换成图像格式
-        image = np.fromstring(pRawData, np.uint8).reshape(nHeight.value, nWidth.value, int(nBitCount.value/8))
+        image = np.frombuffer(pRawData, np.uint8).reshape(nHeight.value, nWidth.value, int(nBitCount.value/8))
 
         if retValue != 1:
                 print("capture error code %d" % (retValue))

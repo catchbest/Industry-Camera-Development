@@ -91,6 +91,7 @@ extern "C"{
 	KSJ_API  int __stdcall KSJ_ColorModeReadout(int nIndex, unsigned short *pValue);
 
 	KSJ_API  int __stdcall KSJ_SerialsDescProgram(int nIndex, unsigned char btDesc[16]);
+	KSJ_API  int __stdcall KSJ_HardwareVersionProgram(int nIndex, unsigned char btVersion[16]);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -55,6 +55,16 @@ extern "C"{
 	KSJ_API  int __stdcall KSJ_SerialsDescReadout(int nIndex, unsigned char btDesc[16]);
 
 	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_HardwareVersionReadout
+	/// @brief     获取相机的硬件版本号
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @param     btDesc [out] 返回相机的硬件版本号
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_HardwareVersionReadout(int nIndex, unsigned char btVersion[16]);
+
+	///-----------------------------------------------------------------------------
 	/// @brief     KSJ_LutInfoProgram
 	/// @brief     设置LUT信息
 	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）

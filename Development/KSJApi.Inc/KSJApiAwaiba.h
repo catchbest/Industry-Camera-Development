@@ -163,6 +163,25 @@ extern "C"{
 	///-----------------------------------------------------------------------------
 	KSJ_API  int __stdcall KSJ_AWAIBA_GetSplitSegment(int nIndex, bool *pbSplit);
 
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_ProgramLineCamareParam
+	/// @brief     将当前的线阵相机参数保存到相机中
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	/// @attention 保存参数以后，相机断电再连接，软件启动后，会自动加载这些参数。
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_ProgramLineCamareParam(int nIndex);          /// 将目前的主要参数保存至相机，再次重启KSJApi库时会自动加载并设置
+
+	///-----------------------------------------------------------------------------
+	/// @brief     KSJ_LoadLineCamareParam
+	/// @brief     将当前的线阵相机设置参数恢复到保存在相机中的状态
+	/// @param     nIndex [in] 设备索引（从0开始，最大索引数为:连接到主机的设备数目减一）
+	/// @return    成功返回 RET_SUCCESS(0)。否则返回非0值的错误码, 请参考 KSJCode.h 中错误码的定义。
+	/// @attention 调用KSJ_Init函数初始化后调用
+	/// @attention 在调试相机过程中，如果需要返回到相机保存的状态，可以执行该函数
+	///-----------------------------------------------------------------------------
+	KSJ_API  int __stdcall KSJ_LoadLineCamareParam(int nIndex);   /// 将目前保存至相机的主要参数加载并设置
 
 #ifdef __cplusplus
 }
